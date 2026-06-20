@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --medical-navy: #0b2a4a;
+  --medical-blue: #1261a0;
+  --primary-blue: #1976d2;
+  --light-blue: #eaf4fc;
+  --soft-blue: #f4f9fd;
+  --sky-blue: #d8ecfa;
+  --background: #f8fbfe;
+  --surface: #ffffff;
+  --text-primary: #162a3a;
+  --text-secondary: #5e7180;
+  --border: #dce8f1;
+  --success-teal: #168c88;
+}
+
+@theme {
+  --color-medical-navy: var(--medical-navy);
+  --color-medical-blue: var(--medical-blue);
+  --color-primary-blue: var(--primary-blue);
+  --color-light-blue: var(--light-blue);
+  --color-soft-blue: var(--soft-blue);
+  --color-sky-blue: var(--sky-blue);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+  --color-success-teal: var(--success-teal);
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* adjusted for sticky header */
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base custom classes to match Medical Documentary design style */
+.editorial-number {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  color: var(--medical-blue);
+}
+
+.text-editorial-title {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
