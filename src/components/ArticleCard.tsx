@@ -1,5 +1,6 @@
 import type { Article } from "../data/articles";
 import { ArrowUpRight, Clock } from "lucide-react";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 interface ArticleCardProps {
   article: Article;
@@ -11,11 +12,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
       
       {/* Article Cover Image Container */}
       <div className="aspect-[16/10] overflow-hidden bg-light-blue relative">
-        <img
+        <OptimizedImage
           src={article.coverImage}
           alt={article.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
-          loading="lazy"
         />
         {/* Category Badge overlay */}
         <span className="absolute top-4 left-4 bg-surface/90 backdrop-blur-xs text-medical-blue text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">

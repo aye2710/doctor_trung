@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 interface EventImage {
   src: string;
@@ -86,11 +87,11 @@ export function EventGallery({ isOpen, onClose, title, images }: EventGalleryPro
 
         {/* Current Image display */}
         <div className="flex flex-col items-center max-h-[58vh] md:max-h-[62vh] max-w-full px-12 md:px-20">
-          <img
+          <OptimizedImage
             src={images[activeIndex].src}
             alt={images[activeIndex].alt}
             className="max-h-[50vh] md:max-h-[54vh] max-w-full object-contain rounded shadow-2xl border border-white/10 bg-white/5"
-            loading="eager"
+            priority
           />
           <p className="text-white/70 text-sm mt-4 text-center px-4 max-w-2xl font-sans font-light">
             {images[activeIndex].alt}
@@ -126,7 +127,7 @@ export function EventGallery({ isOpen, onClose, title, images }: EventGalleryPro
               }`}
               aria-label={`Xem hình số ${idx + 1}`}
             >
-              <img src={img.src} alt="" loading="lazy" className="w-full h-full object-cover" />
+              <OptimizedImage src={img.src} alt="" className="w-full h-full object-cover" />
             </button>
           ))}
         </div>

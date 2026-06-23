@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 const images = [
   {
@@ -77,11 +78,11 @@ export function RotatingDoctorImages() {
               ease: "easeInOut"
             }}
           >
-            <img
+            <OptimizedImage
               src={img.src}
               alt={img.alt}
               className="w-full h-full object-cover"
-              draggable={false}
+              priority={isCenter || isRight}
             />
           </motion.div>
         );

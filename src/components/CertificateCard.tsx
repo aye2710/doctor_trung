@@ -1,4 +1,5 @@
 import type { CertificateItem } from "../data/certificates";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 interface CertificateCardProps {
   cert: CertificateItem;
@@ -25,11 +26,10 @@ export function CertificateCard({ cert, onClick }: CertificateCardProps) {
       aria-label={`Xem chi tiết ${displayTitle}`}
     >
       <div className="w-full aspect-[4/3] overflow-hidden bg-white">
-        <img
+        <OptimizedImage
           src={cert.image}
           alt={cert.alt}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
         />
       </div>
 

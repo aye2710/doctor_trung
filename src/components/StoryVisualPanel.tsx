@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { storyVisuals } from "../data/storyVisuals";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 interface StoryVisualPanelProps {
   activeSection: string;
@@ -24,10 +25,9 @@ export function StoryVisualPanel({ activeSection }: StoryVisualPanelProps) {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 w-full h-full"
           >
-            <img
+            <OptimizedImage
               src={currentVisual.image}
               alt={currentVisual.alt}
-              loading="lazy"
               className="w-full h-full object-cover"
             />
             {/* Soft blue branding overlay */}

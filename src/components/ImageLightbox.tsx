@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 interface LightboxItem {
   src: string;
@@ -92,11 +93,11 @@ export function ImageLightbox({
 
         {/* Center Content */}
         <div className="flex flex-col items-center max-h-[82vh] max-w-full px-12 md:px-20">
-          <img
+          <OptimizedImage
             src={currentItem.src}
             alt={currentItem.alt}
             className="max-h-[62vh] max-w-full object-contain rounded bg-white shadow-2xl p-3 border border-white/5"
-            loading="eager"
+            priority
           />
           <div className="mt-6 text-center text-white max-w-xl">
             <h3 className="text-xl md:text-2xl font-serif italic font-medium tracking-wide">

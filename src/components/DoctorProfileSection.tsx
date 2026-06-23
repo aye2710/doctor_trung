@@ -1,6 +1,7 @@
 import { doctorProfile } from "../data/doctorProfile";
 import { DoctorProfileCard } from "./DoctorProfileCard";
 import { SectionReveal } from "./SectionReveal";
+import { OptimizedImage } from "./common/OptimizedImage";
 
 export function DoctorProfileSection() {
   return (
@@ -52,11 +53,10 @@ export function DoctorProfileSection() {
             {/* Clinical Working Image */}
             {doctorProfile.workingImage && (
               <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video max-h-80 w-full mt-2 border border-border">
-                <img
+                <OptimizedImage
                   src={doctorProfile.workingImage}
                   alt="Bác sĩ Trung đang trao đổi lâm sàng cùng bệnh nhân"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-101"
-                  loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
                   <p className="text-white text-xs md:text-sm font-sans font-light">
