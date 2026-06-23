@@ -126,7 +126,7 @@ export function EventGallery({ isOpen, onClose, title, images }: EventGalleryPro
               }`}
               aria-label={`Xem hình số ${idx + 1}`}
             >
-              <img src={img.src} alt="" className="w-full h-full object-cover" />
+              <img src={img.src} alt="" loading="lazy" className="w-full h-full object-cover" />
             </button>
           ))}
         </div>

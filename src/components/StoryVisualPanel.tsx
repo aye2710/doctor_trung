@@ -27,6 +27,7 @@ export function StoryVisualPanel({ activeSection }: StoryVisualPanelProps) {
             <img
               src={currentVisual.image}
               alt={currentVisual.alt}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             {/* Soft blue branding overlay */}

@@ -85,7 +85,7 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
                 key={idx}
                 className="w-14 h-10 md:w-16 md:h-12 rounded-lg overflow-hidden border border-border/80 bg-surface flex-shrink-0"
               >
-                <img src={img.src} alt="" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                <img src={img.src} alt="" loading="lazy" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
               </div>
             ))}
           </div>
