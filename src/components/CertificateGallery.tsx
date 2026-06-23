@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { certificates } from "../data/certificates";
 import { CertificateCard } from "./CertificateCard";
 import { ImageLightbox } from "./ImageLightbox";
 import { SectionReveal } from "./SectionReveal";
-import { StaggerReveal, StaggerItem } from "./StaggerReveal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function CertificateGallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleOpen = (index: number) => {
     setCurrentIndex(index);
     setIsOpen(true);
   };
 
-  // Convert certificates data list to match ImageLightbox expected schema
   const lightboxImages = certificates.map((cert) => ({
     src: cert.image,
     title: cert.title,
@@ -22,6 +22,15 @@ export function CertificateGallery() {
     year: cert.year,
     alt: cert.alt
   }));
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = scrollRef.current.clientWidth * 0.6;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <SectionReveal
@@ -43,17 +52,41 @@ export function CertificateGallery() {
           </p>
         </div>
 
-        {/* 6 Certificate Cards Grid */}
-        <StaggerReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {certificates.map((cert, index) => (
-            <StaggerItem key={cert.id}>
-              <CertificateCard
-                cert={cert}
-                onClick={() => handleOpen(index)}
-              />
-            </StaggerItem>
-          ))}
-        </StaggerReveal>
+        {/* Horizontal Scrollable Carousel */}
+        <div className="relative group">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface border border-border shadow-md flex items-center justify-center text-text-secondary hover:text-primary-blue hover:border-primary-blue transition-all opacity-0 group-hover:opacity-100 -translate-x-4 md:-translate-x-6 cursor-pointer"
+            aria-label="Kéo sang trái"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 scroll-smooth"
+          >
+            {certificates.map((cert, index) => (
+              <div key={cert.id} className="flex-shrink-0 w-[280px] md:w-[320px] snap-start">
+                <CertificateCard
+                  cert={cert}
+                  onClick={() => handleOpen(index)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface border border-border shadow-md flex items-center justify-center text-text-secondary hover:text-primary-blue hover:border-primary-blue transition-all opacity-0 group-hover:opacity-100 translate-x-4 md:translate-x-6 cursor-pointer"
+            aria-label="Kéo sang phải"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
         {/* Lightbox modal overlay */}
         <ImageLightbox

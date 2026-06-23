@@ -60,7 +60,7 @@ export function MobileMenu({ isOpen, onClose, activeSection }: MobileMenuProps) 
           <div className="flex items-center justify-between pb-6 border-b border-border">
             <div>
               <h2 className="text-xl font-serif font-bold text-medical-navy">Dr. Trung</h2>
-              <p className="text-xs tracking-wider uppercase text-medical-blue mt-0.5 font-medium">Cơ Xương Khớp</p>
+              <p className="text-xs tracking-wider uppercase text-medical-blue mt-0.5 font-medium">Điều trị Đau</p>
             </div>
             <button
               onClick={onClose}
@@ -106,7 +106,7 @@ export function MobileMenu({ isOpen, onClose, activeSection }: MobileMenuProps) 
             Đặt lịch khám bệnh viện
           </a>
           <p className="text-center text-[10px] text-text-secondary">
-            Bác sĩ Trung · Chuyên khoa Cơ Xương Khớp
+            Bác sĩ Trung · Chuyên khoa Điều trị Đau
           </p>
         </div>
 

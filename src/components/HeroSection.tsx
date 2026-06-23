@@ -1,5 +1,6 @@
 import { doctorProfile } from "../data/doctorProfile";
 import { Calendar, User } from "lucide-react";
+import { RotatingDoctorImages } from "./RotatingDoctorImages";
 
 // Helper function to clean placeholders for production-ready display
 function formatData(value: string | undefined, fallback: string): string {
@@ -11,9 +12,9 @@ function formatData(value: string | undefined, fallback: string): string {
 
 export function HeroSection() {
   const displayName = formatData(doctorProfile.fullName, "Bác sĩ Trung");
-  const displayDegree = formatData(doctorProfile.degree, "Bác sĩ Chuyên khoa II");
-  const displayTitle = formatData(doctorProfile.hospitalTitle, "Bác sĩ Điều trị");
-  const displayHospital = formatData(doctorProfile.hospital, "Bệnh viện đa khoa đầu ngành");
+  const displayDegree = formatData(doctorProfile.degree, "Bác sĩ");
+  const displayTitle = formatData(doctorProfile.hospitalTitle, "Bác sĩ Gây mê Hồi sức & Điều trị đau");
+  const displayHospital = formatData(doctorProfile.hospital, "Bệnh viện Bưu Điện");
 
   const handleScrollToProfile = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -45,7 +46,7 @@ export function HeroSection() {
           
           {/* Label */}
           <span className="text-xs uppercase tracking-widest font-mono text-medical-blue font-bold bg-light-blue px-3.5 py-1.5 rounded-full mb-6">
-            CHUYÊN KHOA CƠ XƯƠNG KHỚP
+            CHUYÊN KHOA ĐIỀU TRỊ ĐAU
           </span>
 
           {/* Heading */}
@@ -97,16 +98,16 @@ export function HeroSection() {
           {/* Short details / Trust points */}
           <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border w-full max-w-md">
             <div>
-              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">15+</p>
+              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">13+</p>
               <p className="text-xs text-text-secondary mt-1 font-light uppercase tracking-wider">Năm kinh nghiệm</p>
             </div>
             <div>
-              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">Cá nhân</p>
-              <p className="text-xs text-text-secondary mt-1 font-light uppercase tracking-wider">Điều trị chuyên sâu</p>
+              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">Không XN</p>
+              <p className="text-xs text-text-secondary mt-1 font-light uppercase tracking-wider">Can thiệp không xâm lấn</p>
             </div>
             <div>
-              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">Bảo tồn</p>
-              <p className="text-xs text-text-secondary mt-1 font-light uppercase tracking-wider">Phục hồi vận động</p>
+              <p className="text-xl md:text-2xl font-serif italic text-primary-blue font-bold">Quốc tế</p>
+              <p className="text-xs text-text-secondary mt-1 font-light uppercase tracking-wider">Đào tạo CME Châu Âu</p>
             </div>
           </div>
 
@@ -115,19 +116,14 @@ export function HeroSection() {
         {/* Right column - Doctor Portrait (42%) */}
         <div className="lg:col-span-5 flex justify-center w-full lg:w-auto relative">
           {/* Circular/elliptical back vector graphic */}
-          <div className="absolute inset-0 bg-gradient-to-br from-light-blue to-sky-blue/30 rounded-[36px] -rotate-3 scale-102 -z-10 pointer-events-none" />
           
-          <div className="w-full max-w-md lg:max-w-full aspect-[4/5] rounded-[28px] md:rounded-[36px] overflow-hidden shadow-lg border-4 border-surface bg-surface flex items-center justify-center">
-            <img
-              src={doctorProfile.portraitImage}
-              alt={`Ảnh chân dung Bác sĩ Trung`}
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
-              loading="eager"
-            />
+          
+          <div className="w-full max-w-md lg:max-w-full aspect-[4/5] rounded-[28px] md:rounded-[36px] overflow-hidden">
+            <RotatingDoctorImages />
           </div>
         </div>
 
-      </div>
+      </div> 
     </section>
   );
 }

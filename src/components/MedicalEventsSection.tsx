@@ -31,7 +31,7 @@ export function MedicalEventsSection() {
             Kết nối chuyên môn và cập nhật những tiến bộ mới trong y khoa.
           </h2>
           <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
-            Bác sĩ Trung thường xuyên tham gia các hội nghị, diễn đàn và chương trình trao đổi chuyên môn nhằm cập nhật kiến thức và chia sẻ kinh nghiệm trong lĩnh vực Cơ Xương Khớp.
+            Bác sĩ Trung thường xuyên tham gia các hội nghị, diễn đàn và chương trình trao đổi chuyên môn nhằm cập nhật kiến thức và chia sẻ kinh nghiệm trong lĩnh vực Điều trị Đau & Gây mê Hồi sức.
           </p>
         </div>
 

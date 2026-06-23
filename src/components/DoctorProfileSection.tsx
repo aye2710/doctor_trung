@@ -16,10 +16,10 @@ export function DoctorProfileSection() {
             THÔNG TIN BÁC SĨ
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
-            Chuyên môn được xây dựng từ quá trình học tập và thực hành lâm sàng.
+            Chuyên môn Điều trị Đau được xây dựng từ quá trình học tập và thực hành lâm sàng.
           </h2>
           <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
-            Bác sĩ Trung hiện công tác trong lĩnh vực Cơ Xương Khớp, tập trung vào việc thăm khám, đánh giá, điều trị và theo dõi phục hồi vận động cho người bệnh.
+            Bác sĩ Trung hiện công tác tại Bệnh viện Bưu Điện trong lĩnh vực Gây mê Hồi sức & Điều trị đau, tập trung vào các phương pháp can thiệp giảm đau không xâm lấn, không phẫu thuật.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export function DoctorProfileSection() {
 
             {/* Quote block */}
             <blockquote className="bg-surface border-l-4 border-primary-blue rounded-r-xl p-5 md:p-6 shadow-xs italic text-medical-navy font-serif text-lg">
-              &ldquo;Trong y khoa, đặc biệt là Cơ Xương Khớp, việc điều trị không thể vội vã. Cần kiên nhẫn để thấu hiểu từng cử động nhỏ của khớp, tìm đúng nguyên nhân và phục hồi dần khả năng tự vận động của người bệnh.&rdquo;
+              &ldquo;Điều trị đau mạn tính là một hành trình, không phải một lần can thiệp đơn lẻ. Cần kiên nhẫn để thấu hiểu cơn đau, tìm đúng nguyên nhân và đồng hành cùng người bệnh lấy lại chất lượng cuộc sống.&rdquo;
               <cite className="block text-xs uppercase tracking-widest text-text-secondary font-mono font-bold not-italic mt-3">
                 — Bác sĩ Trung
               </cite>

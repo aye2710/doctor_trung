@@ -6,10 +6,11 @@ import { Footer } from "../components/Footer";
 // 10 Section components
 import { HeroSection } from "../components/HeroSection";
 import { DoctorProfileSection } from "../components/DoctorProfileSection";
-import { CareerStorySection } from "../components/CareerStorySection";
+// import { CareerStorySection } from "../components/CareerStorySection";
 import { CertificateGallery } from "../components/CertificateGallery";
 import { MedicalEventsSection } from "../components/MedicalEventsSection";
 import { PainPointsSection } from "../components/PainPointsSection";
+// import { SignsSection } from "../components/SignsSection";
 import { PhilosophySection } from "../components/PhilosophySection";
 import { PatientJourney } from "../components/PatientJourney";
 import { KnowledgeSection } from "../components/KnowledgeSection";
@@ -26,13 +27,14 @@ export function LandingPage() {
   const sectionIds = [
     "home",
     "doctor-profile",
-    "career-story",
+    // "career-story",
     "certificates",
     "events",
+    "knowledge",
     "pain-points",
+    // "signs",
     "philosophy",
     "journey",
-    "knowledge",
     "booking"
   ];
 
@@ -68,13 +70,14 @@ export function LandingPage() {
           <div className="lg:col-span-12 flex flex-col gap-0 border-r border-border/10">
             <HeroSection />
             <DoctorProfileSection />
-            <CareerStorySection />
+            {/* <CareerStorySection /> */}
             <CertificateGallery />
             <MedicalEventsSection />
+            <KnowledgeSection />
             <PainPointsSection />
+            {/* <SignsSection /> */}
             <PhilosophySection />
             <PatientJourney />
-            <KnowledgeSection />
             <BookingSection />
           </div>
 

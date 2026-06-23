@@ -1,5 +1,5 @@
+import { motion } from "framer-motion";
 import { SectionReveal } from "./SectionReveal";
-import { StaggerReveal, StaggerItem } from "./StaggerReveal";
 
 interface TimelineItem {
   num: string;
@@ -13,32 +13,32 @@ export function CareerStorySection() {
     {
       num: "01",
       title: "Khởi đầu với ngành y",
-      period: "Đào tạo Y khoa Chính quy",
-      content: "Bắt đầu hành trình y học với việc học tập chính quy tại trường đại học y khoa danh tiếng. Đây là giai đoạn nền móng giúp tiếp thu sâu sắc kiến thức y khoa nền tảng, giải phẫu hệ vận động và rèn luyện y đức nghề nghiệp."
+      period: "Học viện Quân Y (2006 - 2012)",
+      content: "Tốt nghiệp Bác sĩ đa khoa tại Học viện Quân Y, một trong những trường đào tạo y khoa hàng đầu cả nước. Đây là giai đoạn nền móng giúp tiếp thu kiến thức y khoa nền tảng vững chắc và rèn luyện y đức nghề nghiệp."
     },
     {
       num: "02",
-      title: "Lựa chọn chuyên ngành Cơ Xương Khớp",
-      period: "Định Hướng Chuyên Sâu Lâm Sàng",
-      content: "Thấu hiểu sự ảnh hưởng to lớn của các cơn đau cơ xương khớp đến khả năng vận động và tự chủ cuộc sống của người trung niên và người già, bác sĩ quyết định cống hiến chuyên sâu cho lĩnh vực Cơ Xương Khớp."
+      title: "Kinh nghiệm Nội tổng hợp",
+      period: "Bệnh viện Đa khoa Xanh Pôn (2013 - 2019)",
+      content: "Công tác tại khoa Nội tổng hợp 2 của Bệnh viện Đa khoa Xanh Pôn, trực tiếp tham gia thăm khám, chẩn đoán và điều trị nội khoa cho hàng ngàn lượt bệnh nhân, tích lũy kinh nghiệm lâm sàng phong phú."
     },
     {
       num: "03",
-      title: "Phát triển kinh nghiệm lâm sàng",
-      period: "Thực hành tại Bệnh viện Hạng I",
-      content: "Trực tiếp tham gia công tác thăm khám, chẩn đoán cận lâm sàng và điều trị nội khoa chuyên sâu cho hàng ngàn lượt bệnh nhân trong môi trường thực tiễn bệnh viện lớn đầy áp lực."
+      title: "Đào tạo chuyên sâu",
+      period: "Đại học Y Hà Nội (2016 - 2018)",
+      content: "Theo học chương trình đào tạo chuyên sâu tại Đại học Y Hà Nội, củng cố và nâng cao kiến thức chuyên môn, định hướng phát triển theo con đường điều trị đau và gây mê hồi sức."
     },
     {
       num: "04",
-      title: "Cập nhật y khoa liên tục",
-      period: "Nghiên cứu & Đào tạo chuyên khoa",
-      content: "Liên tục tham gia các khóa đào tạo nâng cao kỹ năng lâm sàng (như can thiệp khớp ít xâm lấn dưới hướng dẫn siêu âm) và báo cáo nghiên cứu khoa học tại các hội thảo y khoa chuyên ngành lớn."
+      title: "Gây mê Hồi sức & Điều trị đau",
+      period: "Bệnh viện Bưu Điện (2019 - nay)",
+      content: "Chuyển sang Bệnh viện Bưu Điện với vai trò Bác sĩ Gây mê Hồi sức & Điều trị đau, tập trung vào các phương pháp can thiệp giảm đau không xâm lấn, không phẫu thuật."
     },
     {
       num: "05",
-      title: "Đồng hành cùng người bệnh hôm nay",
-      period: "Sứ mệnh Phục hồi Vận động Chủ động",
-      content: "Áp dụng phương châm điều trị bảo tồn kết hợp cá nhân hóa chuyên sâu, hỗ trợ người bệnh duy trì thói quen tập luyện khoa học để tối ưu hóa tầm vận động tự nhiên và bảo vệ khớp trọn đời."
+      title: "Đào tạo quốc tế & Chuyên sâu",
+      period: "PRF Symposium, Pain Fellowship & CME Quốc tế",
+      content: "Liên tục cập nhật y khoa tiên tiến qua các khóa đào tạo quốc tế: PRF Symposium tại Hà Lan - Pháp (6.0 CME Châu Âu), Global Online Pain Fellowship (12 tháng), cùng nhiều chứng chỉ can thiệp giảm đau trong nước."
     }
   ];
 
@@ -58,18 +58,25 @@ export function CareerStorySection() {
             CÂU CHUYỆN & HÀNH TRÌNH NGHỀ NGHIỆP
           </span>
           <h2 className="text-3xl md:text-5xl font-serif italic text-white tracking-tight leading-tight mt-2 mb-4">
-            Mỗi dấu mốc chuyên môn đều bắt đầu từ mong muốn giúp người bệnh vận động tốt hơn.
+            Mỗi dấu mốc chuyên môn đều bắt đầu từ mong muốn giúp người bệnh thoát khỏi cơn đau.
           </h2>
           <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">
-            Nhìn lại những chặng đường phát triển chuyên môn lâm sàng chính quy, củng cố nền tảng kiến thức và năng lực điều trị khớp cột sống toàn diện.
+            Nhìn lại những chặng đường phát triển chuyên môn lâm sàng chính quy, củng cố nền tảng kiến thức và năng lực điều trị đau toàn diện.
           </p>
         </div>
 
         {/* Timeline Layout */}
-        <StaggerReveal className="relative flex flex-col gap-12 md:gap-16 pl-6 md:pl-12 border-l border-white/20 text-left">
+        <div className="relative flex flex-col gap-12 md:gap-16 pl-6 md:pl-12 border-l border-white/20 text-left">
           
           {timelineItems.map((item, index) => (
-            <StaggerItem key={index} className="relative group">
+            <motion.div
+              key={index}
+              className="relative group"
+              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            >
               {/* Timeline dot */}
               <div className="absolute -left-[31px] md:-left-[55px] top-1.5 w-4 h-4 rounded-full border-2 border-primary-blue bg-medical-navy transition-all duration-300 group-hover:scale-120 group-hover:bg-primary-blue" />
               
@@ -97,10 +104,10 @@ export function CareerStorySection() {
                 </div>
 
               </div>
-            </StaggerItem>
+            </motion.div>
           ))}
 
-        </StaggerReveal>
+        </div>
 
       </div>
     </SectionReveal>

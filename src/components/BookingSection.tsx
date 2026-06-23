@@ -1,5 +1,6 @@
 import { doctorProfile } from "../data/doctorProfile";
 import { AlertCircle, Calendar, Clock, MapPin, Landmark } from "lucide-react";
+import { SectionReveal } from "./SectionReveal";
 
 const BOOKING_URL = "#";
 
@@ -23,7 +24,7 @@ export function BookingSection() {
             LIÊN HỆ & ĐẶT LỊCH
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
-            Bắt đầu hành trình chăm sóc Cơ Xương Khớp đúng cách.
+            Bắt đầu hành trình điều trị đau đúng cách.
           </h2>
           <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
             Bác sĩ Trung hiện đang thực hiện lịch khám trực tiếp tại bệnh viện công. Người bệnh có thể đăng ký hẹn giờ chính thức thông qua cổng đăng ký y khoa để được hỗ trợ chu đáo.
@@ -49,7 +50,7 @@ export function BookingSection() {
                     {displayHospital}
                   </p>
                   <p className="text-sm text-text-secondary mt-0.5 font-light">
-                    Khoa Cơ Xương Khớp
+                    Khoa Gây mê Hồi sức & Điều trị đau
                   </p>
                 </div>
               </div>
@@ -62,7 +63,7 @@ export function BookingSection() {
                 <div>
                   <h4 className="text-xs uppercase tracking-wider text-text-secondary font-mono">Địa điểm khám bệnh</h4>
                   <p className="text-base font-semibold text-medical-navy mt-1">
-                    Phòng khám chuyên khoa Cơ Xương Khớp - Khu khám bệnh theo yêu cầu
+                    Phòng khám chuyên khoa Điều trị Đau - Khu khám bệnh theo yêu cầu
                   </p>
                   <p className="text-sm text-text-secondary mt-0.5 font-light">
                     Sảnh A, Toà nhà hành chính trung tâm bệnh viện
@@ -140,5 +141,3 @@ export function BookingSection() {
   );
 }
 
-// Importing SectionReveal for wrapping
-import { SectionReveal } from "./SectionReveal";

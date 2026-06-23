@@ -19,7 +19,7 @@ export function Footer() {
               Dr. Trung
             </span>
             <span className="text-xs uppercase tracking-widest font-mono text-sky-blue font-semibold">
-              Chuyên khoa Cơ Xương Khớp
+              Chuyên khoa Điều trị Đau
             </span>
             <p className="text-white/60 text-sm mt-2 max-w-sm font-sans font-light leading-relaxed">
               Đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống lâu dài.
@@ -62,7 +62,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col md:flex-row gap-6 md:gap-12 justify-between items-start text-xs text-white/40 leading-relaxed">
           <div className="max-w-2xl">
             <strong className="text-white/60 uppercase block mb-1">Tuyên bố miễn trừ trách nhiệm (Medical Disclaimer)</strong>
-            Nội dung trên website chỉ mang tính chất cung cấp thông tin tham khảo, hướng dẫn y khoa cơ bản và câu chuyện phát triển thương hiệu cá nhân của Bác sĩ Trung. Thông tin này không thay thế cho việc trực tiếp đến thăm khám, chẩn đoán cận lâm sàng và tư vấn y khoa chuyên sâu từ bác sĩ chuyên khoa Cơ Xương Khớp tại bệnh viện chính thức.
+            Nội dung trên website chỉ mang tính chất cung cấp thông tin tham khảo, hướng dẫn y khoa cơ bản và câu chuyện phát triển thương hiệu cá nhân của Bác sĩ Trung. Thông tin này không thay thế cho việc trực tiếp đến thăm khám, chẩn đoán cận lâm sàng và tư vấn y khoa chuyên sâu từ bác sĩ chuyên khoa Điều trị Đau tại bệnh viện chính thức.
           </div>
           <div className="whitespace-nowrap mt-2 md:mt-0 font-light">
             &copy; {currentYear} Dr. Trung. Bản quyền được bảo lưu.

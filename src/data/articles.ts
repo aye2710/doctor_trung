@@ -11,54 +11,54 @@ export interface Article {
 export const articles: Article[] = [
   {
     id: "art-01",
-    title: "5 dấu hiệu thoái hóa khớp gối cần chú ý",
-    category: "Thoái hóa khớp",
-    summary: "Thoái hóa khớp gối phát triển thầm lặng. Nhận biết sớm các triệu chứng như cứng khớp buổi sáng, tiếng kêu lục khục hay đau tăng khi lên xuống cầu thang giúp phòng tránh biến chứng nguy hiểm.",
+    title: "Đau mạn tính là gì? Khi nào bạn nên gặp bác sĩ điều trị đau?",
+    category: "Đau mạn tính",
+    summary: "Đau mạn tính kéo dài trên 3 tháng, ảnh hưởng nghiêm trọng đến chất lượng cuộc sống. Tìm hiểu các dấu hiệu nhận biết và khi nào cần can thiệp chuyên khoa điều trị đau.",
     coverImage: "/images/story/healthy-walking.jpg",
     date: "15/06/2026",
     readTime: "5 phút đọc"
   },
   {
     id: "art-02",
-    title: "Khi nào đau lưng kéo dài cần đi khám bác sĩ xương khớp?",
-    category: "Đau cột sống",
-    summary: "Nhiều người thường chủ quan tự mua thuốc giảm đau khi bị đau lưng. Bài viết chỉ ra các dấu hiệu báo động đỏ như đau lan xuống chân, tê bì, hoặc đau nhiều về đêm cần gặp bác sĩ chuyên khoa ngay lập tức.",
-    coverImage: "/images/story/doctor-working.jpg",
+    title: "Sóng cao tần RF/PRF là gì? Giải pháp điều trị đau không phẫu thuật",
+    category: "Công nghệ y khoa",
+    summary: "RF (Radiofrequency) và PRF (Pulsed Radiofrequency) là phương pháp can thiệp giảm đau tiên tiến, ứng dụng sóng cao tần tác động lên dây thần kinh giúp giảm đau mạn tính mà không cần phẫu thuật.",
+    coverImage: "/images/story/ezgif-1-85f73d73c5.gif",
     date: "10/06/2026",
     readTime: "6 phút đọc"
   },
   {
     id: "art-03",
-    title: "Đau vai gáy do đâu và cần xử lý thế nào cho đúng cách?",
-    category: "Bệnh lý cột sống cổ",
-    summary: "Đau mỏi vai gáy là căn bệnh văn phòng phổ biến. Tìm hiểu nguyên nhân từ tư thế làm việc sai lệch đến các bệnh lý thực thể như thoát vị đĩa đệm cổ và các giải pháp điều trị, bài tập phục hồi hiệu quả.",
+    title: "Đau cổ vai gáy do đâu và khi nào cần điều trị chuyên sâu?",
+    category: "Đau cột sống cổ",
+    summary: "Đau mỏi vai gáy kéo dài có thể là dấu hiệu của tổn thương thần kinh. Bài viết phân tích nguyên nhân và các phương pháp điều trị từ cơ bản đến can thiệp chuyên sâu.",
     coverImage: "/images/story/body-joints.jpg",
     date: "05/06/2026",
     readTime: "4 phút đọc"
   },
   {
     id: "art-04",
-    title: "Cách vận động phù hợp cho người đang gặp các vấn đề về khớp",
-    category: "Phục hồi vận động",
-    summary: "Đau khớp không đồng nghĩa với việc ngưng hoạt động hoàn toàn. Lựa chọn các bộ môn tác động thấp như bơi lội, đạp xe hoặc yoga trị liệu giúp bôi trơn khớp, tăng cơ quanh khớp và hỗ trợ giảm đau an toàn.",
+    title: "TMS (Từ trường xuyên sọ) — Phương pháp mới trong điều trị đau",
+    category: "Phương pháp điều trị",
+    summary: "TMS kích thích từ trường lên vỏ não, giúp điều chỉnh các tín hiệu đau. Đây là lựa chọn điều trị không xâm lấn, không dùng thuốc cho nhiều bệnh lý đau mạn tính.",
     coverImage: "/images/story/rehabilitation.jpg",
     date: "28/05/2026",
     readTime: "5 phút đọc"
   },
   {
     id: "art-05",
-    title: "Những hiểu lầm thường gặp về bệnh lý đau cột sống thắt lưng",
+    title: "Đau sau Zona thần kinh: Biến chứng cần được điều trị sớm",
     category: "Góc cảnh giác y khoa",
-    summary: "Phân tích các quan niệm sai lầm phổ biến như nằm đệm cứng hoàn toàn là tốt cho lưng, bị đau lưng thì phải mổ, hoặc tự ý nắn chỉnh cột sống không theo chỉ định của bác sĩ chuyên khoa Cơ Xương Khớp.",
+    summary: "Đau sau Zona là biến chứng thường gặp khi virus thủy đậu tái hoạt động, gây đau kéo dài. Phát hiện và can thiệp sớm giúp ngăn ngừa chuyển sang đau mạn tính khó điều trị.",
     coverImage: "/images/story/treatment-philosophy.jpg",
     date: "20/05/2026",
     readTime: "7 phút đọc"
   },
   {
     id: "art-06",
-    title: "Khi nào bạn cần tiến hành kiểm tra loãng xương định kỳ?",
-    category: "Loãng xương",
-    summary: "Loãng xương được coi là kẻ giết người thầm lặng vì không có triệu chứng rõ rệt cho đến khi xảy ra gãy xương. Nhận biết độ tuổi, các yếu tố nguy cơ và thời điểm thích hợp để đo mật độ xương.",
+    title: "Đau dây thần kinh chẩm: Triệu chứng và hướng điều trị hiệu quả",
+    category: "Bệnh lý thần kinh",
+    summary: "Đau dây thần kinh chẩm gây đau nhức vùng đầu và cổ, dễ nhầm với đau đầu thông thường. Các phương pháp chẩn đoán và điều trị từ nội khoa đến can thiệp block thần kinh.",
     coverImage: "/images/story/medical-education.jpg",
     date: "12/05/2026",
     readTime: "4 phút đọc"

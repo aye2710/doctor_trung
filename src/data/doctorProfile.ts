@@ -15,26 +15,26 @@ export interface DoctorProfile {
 }
 
 export const doctorProfile: DoctorProfile = {
-  fullName: "[Họ và tên bác sĩ]",
-  degree: "[Học vị]",
-  hospitalTitle: "[Chức danh tại bệnh viện]",
-  specialty: "Cơ Xương Khớp",
-  hospital: "[Tên bệnh viện]",
-  experience: "15+ năm kinh nghiệm lâm sàng",
+  fullName: "Đàm Quang Trung",
+  degree: "Bác sĩ",
+  hospitalTitle: "Bác sĩ Gây mê Hồi sức & Điều trị đau",
+  specialty: "Điều trị Đau",
+  hospital: "Bệnh viện Bưu Điện",
+  experience: "13+ năm kinh nghiệm lâm sàng",
   languages: ["Tiếng Việt", "Tiếng Anh"],
   focusAreas: [
-    "Thăm khám & Điều trị thoái hóa khớp gối, khớp háng",
-    "Kiểm soát cơn đau cột sống cổ, cột sống thắt lưng",
-    "Chẩn đoán & Điều trị bảo tồn thoát vị đĩa đệm",
-    "Tư vấn phục hồi chức năng & Vận động chủ động"
+    "Điều trị đau mạn tính bằng sóng cao tần RF/PRF",
+    "TMS (Từ trường xuyên sọ) trong điều trị đau",
+    "Block thần kinh & Gây tê vùng dưới hướng dẫn siêu âm",
+    "Can thiệp giảm đau không phẫu thuật"
   ],
   shortIntroduction:
-    "Bác sĩ Trung tập trung thăm khám và điều trị các bệnh lý Cơ Xương Khớp, đồng thời đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống.",
+    "Bác sĩ Trung chuyên sâu trong lĩnh vực Điều trị Đau, tập trung vào các phương pháp can thiệp giảm đau không xâm lấn, không phẫu thuật như sóng cao tần RF/PRF và TMS, đồng thời đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau mạn tính và cải thiện chất lượng cuộc sống.",
   fullIntroduction: [
-    "Với sự tận tâm trong thực hành y khoa, Bác sĩ Trung luôn chú trọng việc lắng nghe để thấu hiểu sâu sắc từng biểu hiện đau đớn và khó khăn trong vận động của người bệnh. Từ đó, bác sĩ đưa ra những phác đồ điều trị cá nhân hóa tối ưu nhất.",
-    "Hành trình chuyên môn của bác sĩ gắn liền với cam kết không ngừng cập nhật các phương pháp y khoa tiên tiến, đồng thời đề cao tính nhân văn và sự gần gũi trong tiếp xúc lâm sàng, mang lại cảm giác an tâm và tin cậy tuyệt đối cho người bệnh."
+    "Với nền tảng đào tạo từ Học viện Quân Y và Đại học Y Hà Nội, cùng hơn 13 năm kinh nghiệm lâm sàng tại các bệnh viện lớn, Bác sĩ Trung luôn chú trọng việc lắng nghe để thấu hiểu sâu sắc từng cơn đau của người bệnh. Từ đó, bác sĩ đưa ra những phác đồ điều trị cá nhân hóa tối ưu nhất.",
+    "Hành trình chuyên môn của bác sĩ gắn liền với cam kết không ngừng cập nhật các phương pháp y khoa tiên tiến thông qua các khóa đào tạo quốc tế về PRF, RF và Pain Fellowship, đồng thời đề cao tính nhân văn và sự gần gũi trong tiếp xúc lâm sàng, mang lại cảm giác an tâm và tin cậy tuyệt đối cho người bệnh."
   ],
-  quote: "Điều trị không chỉ nhằm giảm đau, mà còn giúp người bệnh duy trì khả năng vận động lâu dài.",
-  portraitImage: "/images/doctor/doctor-portrait.jpg",
+  quote: "Điều trị đau mạn tính không chỉ là làm dịu triệu chứng, mà còn giúp người bệnh tìm lại chất lượng cuộc sống vốn có.",
+  portraitImage: "/images/doctor/doctor-portrait.png",
   workingImage: "/images/doctor/doctor-working.jpg"
 };

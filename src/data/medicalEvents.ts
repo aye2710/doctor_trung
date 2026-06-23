@@ -15,72 +15,84 @@ export interface MedicalEvent {
 export const medicalEvents: MedicalEvent[] = [
   {
     id: "event-01",
-    title: "[Tên hội nghị thường niên Cơ Xương Khớp toàn quốc]",
+    title: "Báo cáo viên VNC 2024 — Hội nghị Đau toàn quốc",
     type: "Hội nghị",
-    date: "[Thời gian diễn ra 01]",
-    location: "[Địa điểm diễn ra 01]",
-    summary: "Tham gia trao đổi chuyên môn, thảo luận về các nghiên cứu lâm sàng mới nhất và cập nhật xu hướng điều trị bảo tồn các bệnh lý thoái hóa khớp gối giai đoạn sớm.",
+    date: "2024",
+    location: "Việt Nam",
+    summary: "Tham gia với tư cách báo cáo viên, chia sẻ kinh nghiệm lâm sàng trong điều trị đau mạn tính bằng sóng cao tần và các phương pháp can thiệp giảm đau không xâm lấn.",
     coverImage: "/images/events/event-01/cover.jpg",
     images: [
-      { src: "/images/events/event-01/img-1.jpg", alt: "Bác sĩ tham gia báo cáo tại hội trường lớn" },
-      { src: "/images/events/event-01/img-2.jpg", alt: "Thảo luận chuyên môn cùng hội đồng y khoa" },
-      { src: "/images/events/event-01/img-3.jpg", alt: "Ảnh chụp cùng các đồng nghiệp tại hội nghị" }
+      { src: "/images/events/event-01/img-1.jpg", alt: "Bác sĩ Trung trình bày báo cáo tại hội nghị VNC 2024" },
+      { src: "/images/events/event-01/img-2.jpg", alt: "Thảo luận chuyên môn cùng các đồng nghiệp tại VNC 2024" },
+      { src: "/images/events/event-01/img-3.jpg", alt: "Ảnh chụp cùng ban tổ chức hội nghị VNC 2024" },
+      { src: "/images/events/event-01/img-4.jpg", alt: "Bác sĩ Trung tại gian trưng bày thiết bị y khoa" }
     ]
   },
   {
     id: "event-02",
-    title: "[Tên diễn đàn Y khoa Quốc tế về Điều trị Cơ Xương Khớp]",
-    type: "Diễn đàn",
-    date: "[Thời gian diễn ra 02]",
-    location: "[Địa điểm diễn ra 02]",
-    summary: "Trao đổi kinh nghiệm cùng các chuyên gia quốc tế về kỹ thuật can thiệp khớp ít xâm lấn và quản lý đau cột sống cho người bệnh trung và cao tuổi.",
+    title: "Báo cáo viên VNC 2025 — Hội nghị Đau toàn quốc",
+    type: "Hội nghị",
+    date: "2025",
+    location: "Việt Nam",
+    summary: "Tiếp tục tham gia với tư cách báo cáo viên, cập nhật các tiến bộ mới trong điều trị đau và chia sẻ ca lâm sàng ứng dụng PRF trong thực hành.",
     coverImage: "/images/events/event-02/cover.jpg",
     images: [
-      { src: "/images/events/event-02/img-1.jpg", alt: "Phát biểu ý kiến tại diễn đàn trao đổi chuyên môn" },
-      { src: "/images/events/event-02/img-2.jpg", alt: "Tham khảo các thiết bị y tế chẩn đoán hình ảnh thế hệ mới" },
-      { src: "/images/events/event-02/img-3.jpg", alt: "Buổi tọa đàm bàn tròn chuyên đề đau khớp gối" }
+      { src: "/images/events/event-02/img-1.jpg", alt: "Bác sĩ Trung phát biểu tại hội nghị VNC 2025" },
+      { src: "/images/events/event-02/img-2.jpg", alt: "Trao đổi chuyên môn cùng hội đồng khoa học VNC 2025" },
+      { src: "/images/events/event-02/img-3.jpg", alt: "Tham dự phiên thảo luận chuyên đề tại VNC 2025" },
+      { src: "/images/events/event-02/img-4.jpg", alt: "Bác sĩ Trung chụp ảnh cùng các đại biểu tham dự" },
+      { src: "/images/events/event-02/img-5.jpg", alt: "Trình bày nghiên cứu ca lâm sàng điều trị đau" },
+      { src: "/images/events/event-02/img-6.jpg", alt: "Bác sĩ Trung tại khu vực hội thảo chuyên ngành" },
+      { src: "/images/events/event-02/img-7.jpg", alt: "Giao lưu cùng các chuyên gia đầu ngành" }
     ]
   },
   {
     id: "event-03",
-    title: "[Tên hội thảo Cập nhật điều trị loãng xương lâm sàng]",
-    type: "Hội thảo",
-    date: "[Thời gian diễn ra 03]",
-    location: "[Địa điểm diễn ra 03]",
-    summary: "Cập nhật các phác đồ y khoa hiện đại trong phòng ngừa và điều trị loãng xương, hạn chế rủi ro xẹp lún cột sống ở người lớn tuổi.",
+    title: "Hội nghị Đau Quốc tế — Thái Lan 2024",
+    type: "Hội nghị",
+    date: "2024",
+    location: "Thái Lan",
+    summary: "Tham dự hội nghị quốc tế chuyên ngành Đau tại Thái Lan, trao đổi kinh nghiệm cùng các chuyên gia hàng đầu trong khu vực về các phương pháp điều trị đau mạn tính tiên tiến.",
     coverImage: "/images/events/event-03/cover.jpg",
     images: [
-      { src: "/images/events/event-03/img-1.jpg", alt: "Trình bày bài chia sẻ thực hành lâm sàng tại bệnh viện" },
-      { src: "/images/events/event-03/img-2.jpg", alt: "Bác sĩ hướng dẫn thực hành kỹ năng siêu âm khớp" },
-      { src: "/images/events/event-03/img-3.jpg", alt: "Giải đáp thắc mắc chuyên môn trong buổi hội thảo" }
+      { src: "/images/events/event-03/img-1.jpg", alt: "Bác sĩ Trung tại Hội nghị Đau Quốc tế Thái Lan 2024" },
+      { src: "/images/events/event-03/img-2.jpg", alt: "Tham gia phiên thảo luận chuyên môn quốc tế" },
+      { src: "/images/events/event-03/img-3.jpg", alt: "Chụp ảnh cùng các chuyên gia quốc tế tại Thái Lan" },
+      { src: "/images/events/event-03/img-4.jpg", alt: "Bác sĩ Trung tại khu vực hội nghị" }
     ]
   },
   {
     id: "event-04",
-    title: "[Tên hội nghị Y học thể thao & Phục hồi vận động]",
-    type: "Hội nghị",
-    date: "[Thời gian diễn ra 04]",
-    location: "[Địa điểm diễn ra 04]",
-    summary: "Nghiên cứu ứng dụng các phương pháp phục hồi chức năng vận động chủ động kết hợp với điều trị nội khoa cho bệnh nhân bị tổn thương cơ và khớp dây chằng.",
+    title: "The 4th Evolution of PRF Symposium — Hà Lan-Pháp",
+    type: "Diễn đàn",
+    date: "11/2025",
+    location: "Hà Lan - Pháp",
+    summary: "Tham gia khóa đào tạo chuyên sâu về PRF (Pulsed Radiofrequency) đạt chuẩn CME Châu Âu (6.0 CME), cập nhật các kỹ thuật can thiệp tiên tiến nhất trong điều trị đau.",
     coverImage: "/images/events/event-04/cover.jpg",
     images: [
-      { src: "/images/events/event-04/img-1.jpg", alt: "Tham gia thảo luận về chấn thương thể thao" },
-      { src: "/images/events/event-04/img-2.jpg", alt: "Trao đổi chuyên sâu cùng chuyên gia phục hồi chức năng" },
-      { src: "/images/events/event-04/img-3.jpg", alt: "Quan sát các bài tập phục hồi chức năng chuẩn y khoa" }
+      { src: "/images/events/event-04/img-1.jpg", alt: "Bác sĩ Trung tại PRF Symposium Hà Lan-Pháp" },
+      { src: "/images/events/event-04/img-2.jpg", alt: "Thực hành kỹ thuật PRF dưới hướng dẫn chuyên gia" },
+      { src: "/images/events/event-04/img-3.jpg", alt: "Chụp ảnh cùng giảng viên quốc tế tại khóa đào tạo" },
+      { src: "/images/events/event-04/img-4.jpg", alt: "Bác sĩ Trung tham gia thảo luận chuyên môn" },
+      { src: "/images/events/event-04/img-5.jpg", alt: "Hoạt động thực hành lâm sàng tại PRF Symposium" },
+      { src: "/images/events/event-04/img-6.jpg", alt: "Trao đổi cùng chuyên gia đầu ngành về PRF" },
+      { src: "/images/events/event-04/img-7.jpg", alt: "Bác sĩ Trung tại phòng thực hành kỹ thuật" },
+      { src: "/images/events/event-04/img-8.jpg", alt: "Chứng nhận tham dự PRF Symposium Châu Âu" },
+      { src: "/images/events/event-04/img-9.jpg", alt: "Giao lưu cùng đồng nghiệp quốc tế" },
+      { src: "/images/events/event-04/img-10.jpg", alt: "Bác sĩ Trung tại buổi tổng kết khóa đào tạo" }
     ]
   },
   {
     id: "event-05",
-    title: "[Tên hội thảo Đào tạo can thiệp giảm đau cột sống]",
-    type: "Hội thảo",
-    date: "[Thời gian diễn ra 05]",
-    location: "[Địa điểm diễn ra 05]",
-    summary: "Đào tạo thực hành kỹ năng chọc hút, tiêm khớp dưới hướng dẫn của siêu âm để tăng cường hiệu quả giảm đau cột sống và các khớp lớn.",
-    coverImage: "/images/events/event-05/cover.jpg",
+    title: "Hội nghị Phẫu thuật Thần kinh Việt Nam",
+    type: "Hội nghị",
+    date: "2024-2025",
+    location: "Việt Nam",
+    summary: "Tham gia chuỗi hội nghị Phẫu thuật Thần kinh Việt Nam (lần 23, 24 và Hội nghị Trẻ), cập nhật các tiến bộ trong điều trị đau và kết nối với mạng lưới chuyên gia y khoa trong nước.",
+    coverImage: "/images/events/event-05/cover.png",
     images: [
-      { src: "/images/events/event-05/img-1.jpg", alt: "Thực hành lâm sàng sử dụng máy siêu âm khớp" },
-      { src: "/images/events/event-05/img-2.jpg", alt: "Lớp học thực hành kỹ thuật tiêm giảm đau cột sống" },
-      { src: "/images/events/event-05/img-3.jpg", alt: "Chụp ảnh lưu niệm nhận chứng chỉ hoàn thành khóa đào tạo" }
+      { src: "/images/events/event-05/img-1.png", alt: "Chứng nhận tham gia Hội nghị PT Thần kinh VN lần thứ 23" },
+      { src: "/images/events/event-05/img-2.png", alt: "Chứng nhận tham gia Hội nghị PT Thần kinh Trẻ Việt Nam" }
     ]
   }
 ];

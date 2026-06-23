@@ -56,7 +56,7 @@ export function Header({ activeSection, onMobileMenuOpen }: HeaderProps) {
             Dr. Trung
           </span>
           <span className="text-[10px] md:text-xs uppercase tracking-widest font-mono text-medical-blue font-semibold mt-0.5">
-            Chuyên khoa Cơ Xương Khớp
+            Chuyên khoa Điều trị Đau
           </span>
         </a>
 

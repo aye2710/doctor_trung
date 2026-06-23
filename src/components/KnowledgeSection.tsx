@@ -17,10 +17,10 @@ export function KnowledgeSection() {
             GÓC KIẾN THỨC Y KHOA
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
-            Hiểu đúng để chăm sóc Cơ Xương Khớp đúng cách.
+            Hiểu đúng để kiểm soát đau và chăm sóc sức khỏe đúng cách.
           </h2>
           <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
-            Cung cấp các thông tin y khoa chính quy, bài viết hướng dẫn phòng ngừa và kiểm soát cơn đau khớp dựa trên các cơ sở nghiên cứu lâm sàng tin cậy.
+            Cung cấp các thông tin y khoa chính quy, bài viết hướng dẫn phòng ngừa và kiểm soát cơn đau dựa trên các cơ sở nghiên cứu lâm sàng tin cậy.
           </p>
         </div>
 
