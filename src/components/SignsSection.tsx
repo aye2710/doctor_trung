@@ -74,7 +74,7 @@ export function SignsSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg md:text-xl font-serif italic text-medical-navy font-bold group-hover:text-primary-blue transition-colors">
+                <h3 className="text-lg md:text-xl font-heading text-medical-navy font-bold group-hover:text-primary-blue transition-colors">
                   {sign.title}
                 </h3>
 

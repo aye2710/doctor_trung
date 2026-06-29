@@ -1,11 +1,10 @@
 import type { DoctorProfile } from "../data/doctorProfile";
-import { Award, Briefcase, GraduationCap, Heart, Languages } from "lucide-react";
+import { Award, Briefcase, GraduationCap, Heart, Activity } from "lucide-react";
 
 interface DoctorProfileCardProps {
   profile: DoctorProfile;
 }
 
-// Helper to filter out bracketed placeholder strings
 function cleanValue(value: string | undefined, fallback?: string): string | null {
   if (!value || (value.startsWith("[") && value.endsWith("]"))) {
     return fallback || null;
@@ -14,108 +13,110 @@ function cleanValue(value: string | undefined, fallback?: string): string | null
 }
 
 export function DoctorProfileCard({ profile }: DoctorProfileCardProps) {
-  const displayDegree = cleanValue(profile.degree, "Bác sĩ Chuyên khoa II");
+  const displayDegree = cleanValue(profile.degree, "Bác sĩ");
   const displayTitle = cleanValue(profile.hospitalTitle, "Bác sĩ Điều trị");
   const displayHospital = cleanValue(profile.hospital, "Bệnh viện đa khoa");
   const displayExperience = cleanValue(profile.experience);
   
-  // Filter languages array if empty or placeholder
-  const displayLanguages = profile.languages && profile.languages.length > 0 
-    ? profile.languages.join(", ") 
-    : null;
+  const displayCases = cleanValue(profile.casesPerformed);
 
   return (
-    <div className="bg-surface border border-border shadow-md rounded-2xl p-6 md:p-8 flex flex-col gap-6">
+    <div className="bg-surface border border-border shadow-[0_4px_20px_rgba(11,42,74,0.04)] rounded-[20px] p-8 md:p-10 flex flex-col gap-5">
       
-      {/* Short professional summary */}
+      {/* Header */}
       <div>
-        <h3 className="text-xl font-serif italic text-medical-navy font-bold">
+        <h3 className="text-xl md:text-2xl font-bold text-medical-navy">
           {cleanValue(profile.fullName, "Bác sĩ Trung")}
         </h3>
-        <p className="text-sm font-medium text-medical-blue mt-1 uppercase tracking-wider">
+        <p className="text-xs font-semibold text-medical-blue mt-1 uppercase tracking-[1px]">
           Chuyên khoa {profile.specialty}
         </p>
       </div>
 
-      <hr className="border-border" />
+      <div className="h-[1px] bg-border" />
 
-      {/* Profile info list */}
-      <div className="flex flex-col gap-5">
+      {/* Profile items */}
+      <div className="flex flex-col gap-[18px]">
         
-        {/* Degree */}
         {displayDegree && (
           <div className="flex gap-3.5 items-start">
-            <GraduationCap className="w-5 h-5 text-primary-blue flex-shrink-0 mt-0.5" />
+            <div className="w-9 h-9 rounded-[10px] bg-gold-light flex items-center justify-center flex-shrink-0">
+              <GraduationCap className="w-4 h-4 text-gold" />
+            </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-text-secondary">Học vị</p>
+              <p className="text-[10px] uppercase tracking-[1px] text-text-secondary">Học vị</p>
               <p className="text-sm font-semibold text-text-primary mt-0.5">{displayDegree}</p>
             </div>
           </div>
         )}
 
-        {/* Hospital Title */}
         {displayTitle && (
           <div className="flex gap-3.5 items-start">
-            <Briefcase className="w-5 h-5 text-primary-blue flex-shrink-0 mt-0.5" />
+            <div className="w-9 h-9 rounded-[10px] bg-gold-light flex items-center justify-center flex-shrink-0">
+              <Briefcase className="w-4 h-4 text-gold" />
+            </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-text-secondary">Chức danh bệnh viện</p>
+              <p className="text-[10px] uppercase tracking-[1px] text-text-secondary">Chức danh</p>
               <p className="text-sm font-semibold text-text-primary mt-0.5">{displayTitle}</p>
             </div>
           </div>
         )}
 
-        {/* Hospital */}
         {displayHospital && (
           <div className="flex gap-3.5 items-start">
-            <Award className="w-5 h-5 text-primary-blue flex-shrink-0 mt-0.5" />
+            <div className="w-9 h-9 rounded-[10px] bg-gold-light flex items-center justify-center flex-shrink-0">
+              <Award className="w-4 h-4 text-gold" />
+            </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-text-secondary">Nơi công tác</p>
+              <p className="text-[10px] uppercase tracking-[1px] text-text-secondary">Nơi công tác</p>
               <p className="text-sm font-semibold text-text-primary mt-0.5">{displayHospital}</p>
             </div>
           </div>
         )}
 
-        {/* Experience */}
         {displayExperience && (
           <div className="flex gap-3.5 items-start">
-            <Heart className="w-5 h-5 text-primary-blue flex-shrink-0 mt-0.5" />
+            <div className="w-9 h-9 rounded-[10px] bg-gold-light flex items-center justify-center flex-shrink-0">
+              <Heart className="w-4 h-4 text-gold" />
+            </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-text-secondary">Kinh nghiệm lâm sàng</p>
+              <p className="text-[10px] uppercase tracking-[1px] text-text-secondary">Kinh nghiệm</p>
               <p className="text-sm font-semibold text-text-primary mt-0.5">{displayExperience}</p>
             </div>
           </div>
         )}
 
-        {/* Languages */}
-        {displayLanguages && (
+        {displayCases && (
           <div className="flex gap-3.5 items-start">
-            <Languages className="w-5 h-5 text-primary-blue flex-shrink-0 mt-0.5" />
+            <div className="w-9 h-9 rounded-[10px] bg-gold-light flex items-center justify-center flex-shrink-0">
+              <Activity className="w-4 h-4 text-gold" />
+            </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-text-secondary">Ngôn ngữ tư vấn</p>
-              <p className="text-sm font-semibold text-text-primary mt-0.5">{displayLanguages}</p>
+              <p className="text-[10px] uppercase tracking-[1px] text-text-secondary">Số ca đã thực hiện</p>
+              <p className="text-sm font-semibold text-text-primary mt-0.5">{displayCases}</p>
             </div>
           </div>
         )}
 
       </div>
 
+      <div className="h-[1px] bg-border" />
+
+      {/* Focus Areas */}
       {profile.focusAreas && profile.focusAreas.length > 0 && (
-        <>
-          <hr className="border-border" />
-          <div>
-            <h4 className="text-xs uppercase tracking-widest font-bold text-medical-blue mb-3">
-              Lĩnh vực tập trung
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {profile.focusAreas.map((area, idx) => (
-                <li key={idx} className="flex gap-2 items-start text-xs text-text-secondary leading-relaxed">
-                  <span className="w-1.5 h-1.5 rounded-full bg-success-teal flex-shrink-0 mt-1.5" />
-                  {area}
-                </li>
-              ))}
-            </ul>
+        <div>
+          <p className="text-[11px] uppercase tracking-[1.5px] font-semibold text-gold mb-3">
+            Lĩnh vực tập trung
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {profile.focusAreas.map((area, idx) => (
+              <div key={idx} className="flex gap-2.5 items-start text-xs md:text-sm text-text-secondary leading-relaxed">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-1.5" />
+                {area}
+              </div>
+            ))}
           </div>
-        </>
+        </div>
       )}
 
     </div>

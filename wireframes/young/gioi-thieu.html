@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Giới thiệu · Năng động</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --gradient-1: linear-gradient(135deg, #2563eb, #0ea5e9);
+      --gradient-2: linear-gradient(135deg, #8b5cf6, #2563eb);
+      --accent: #2563eb;
+      --accent-light: #eef2ff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 22px; font-weight: 800; color: var(--text); text-decoration: none; }
+    .logo span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+
+    section { padding: 100px 0; }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; padding-top: 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -30%; right: -10%;
+      width: 700px; height: 700px; background: var(--gradient-2); opacity: 0.08;
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 60px; font-weight: 800; color: var(--text);
+      line-height: 1.02; letter-spacing: -1.5px; margin-bottom: 16px;
+    }
+    .hero h1 span {
+      background: var(--gradient-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 17px; color: var(--text-secondary); max-width: 460px; margin-bottom: 32px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gradient-1); color: #fff; text-decoration: none;
+      font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.4); }
+    .hero-image {
+      aspect-ratio: 3/4; border-radius: 24px; overflow: hidden;
+      background: var(--gradient-1); position: relative;
+      transform: rotate(2deg); box-shadow: 0 20px 60px rgba(37,99,235,0.15);
+    }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--border); }
+    .stat-card { background: var(--bg); padding: 40px 24px; text-align: center; }
+    .stat-number { font-size: 42px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 14px; color: var(--text-secondary); font-weight: 500; margin-top: 4px; }
+
+    .profile-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+    .profile-image { border-radius: 24px; background: var(--gradient-1); aspect-ratio: 1; transform: rotate(-2deg); }
+    .profile-content h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; }
+    .profile-content .tag {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      background: var(--accent-light); color: var(--accent);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .profile-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .profile-detail-item { padding: 16px; background: #f8fafc; border-radius: 12px; }
+    .profile-detail-item .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 4px; }
+    .profile-detail-item .value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .principle-card { padding: 40px; border-bottom: 1px solid var(--border); display: flex; gap: 20px; align-items: flex-start; }
+    .principle-card:nth-child(odd) { border-right: 1px solid var(--border); }
+    .principle-card:nth-last-child(-n+2) { border-bottom: none; }
+    .principle-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      background: var(--gradient-1); display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .principle-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .principle-card p { font-size: 14px; color: var(--text-secondary); }
+
+    .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .timeline-card {
+      border: 1px solid var(--border); border-radius: 16px; padding: 28px;
+      transition: all 0.3s;
+    }
+    .timeline-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
+    .timeline-year { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .timeline-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .timeline-card p { font-size: 13px; color: var(--text-secondary); }
+
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .preview-card {
+      border: 1px solid var(--border); border-radius: 16px; padding: 32px;
+      transition: all 0.3s;
+    }
+    .preview-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.1); }
+    .preview-card-icon { font-size: 32px; margin-bottom: 12px; }
+    .preview-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .preview-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+    .preview-link { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+    .cta-section { background: var(--gradient-1); text-align: center; color: #fff; border-radius: 24px; margin: 0 24px; position: relative; overflow: hidden; }
+    .cta-section::before {
+      content: ''; position: absolute; top: -50%; right: -20%;
+      width: 400px; height: 400px; background: rgba(255,255,255,0.06); border-radius: 50%;
+    }
+    .cta-section h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .cta-section p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; position: relative; }
+    .btn-young {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--accent); text-decoration: none;
+      font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 100px;
+      position: relative; transition: transform 0.2s;
+    }
+    .btn-young:hover { transform: scale(1.03); }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="gioi-thieu-young.html" class="logo"><span>Dr.</span> Trung</a>
+      <nav>
+        <a href="gioi-thieu-young.html">Giới thiệu</a>
+        <a href="#">Chuyên môn</a>
+        <a href="#">Hoạt động</a>
+        <a href="#">Kiến thức</a>
+        <a href="#">Đặt lịch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div style="font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px;">&#128640; Chuyên khoa Điều trị Đau</div>
+        <h1>Giảm đau <span>không phẫu thuật</span> — công nghệ cao.</h1>
+        <p>Thạc sĩ. Bác sĩ Đàm Quang Trung với 12+ năm kinh nghiệm trong Điều trị Đau và Gây mê Hồi sức.</p>
+        <a href="#" class="hero-cta">&#8594; Đặt lịch ngay</a>
+      </div>
+      <div class="hero-image"></div>
+    </div>
+  </section>
+
+  <section style="padding:0;">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Năm kinh nghiệm</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Hội nghị quốc tế</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Chứng chỉ quốc tế</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10K+</div>
+        <div class="stat-label">Lượt thăm khám</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="profile-grid">
+        <div class="profile-image"></div>
+        <div class="profile-content">
+          <div class="tag">Thạc sĩ. Bác sĩ Đàm Quang Trung</div>
+          <h2>Gây mê Hồi sức &amp; Điều trị Đau</h2>
+          <p style="color:var(--text-secondary);">Tốt nghiệp Học viện Quân Y, Thạc sĩ Nội khoa tại Đại học Y Hà Nội. Hiện công tác tại Bệnh viện Bưu Điện.</p>
+          <div class="profile-detail">
+            <div class="profile-detail-item">
+              <div class="label">Học vị</div>
+              <div class="value">Thạc sĩ Nội khoa</div>
+            </div>
+            <div class="profile-detail-item">
+              <div class="label">Chức danh</div>
+              <div class="value">Bác sĩ Gây mê Hồi sức</div>
+            </div>
+            <div class="profile-detail-item">
+              <div class="label">Công tác</div>
+              <div class="value">Bệnh viện Bưu Điện</div>
+            </div>
+            <div class="profile-detail-item">
+              <div class="label">Ngôn ngữ</div>
+              <div class="value">Tiếng Việt · English</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f8fafc;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;">Nguyên tắc điều trị</h2>
+        <p style="font-size:16px;color:var(--text-secondary);margin-top:8px;">Mỗi quyết định điều trị đều dựa trên những nguyên tắc vững chắc.</p>
+      </div>
+      <div class="principles">
+        <div class="principle-card">
+          <div class="principle-icon">&#127919;</div>
+          <div>
+            <h4>Điều trị đúng nguyên nhân</h4>
+            <p>Chẩn đoán chính xác để xây dựng phác đồ điều trị hiệu quả.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">&#128161;</div>
+          <div>
+            <h4>Ưu tiên ít xâm lấn</h4>
+            <p>Lựa chọn phương pháp an toàn trước khi can thiệp lớn.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">&#128101;</div>
+          <div>
+            <h4>Cá nhân hóa điều trị</h4>
+            <p>Phác đồ phù hợp với từng người bệnh.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-icon">&#128200;</div>
+          <div>
+            <h4>Đồng hành lâu dài</h4>
+            <p>Theo dõi và tối ưu kết quả điều trị.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;">Hành trình chuyên môn</h2>
+        <p style="font-size:16px;color:var(--text-secondary);margin-top:8px;">Những cột mốc trong sự nghiệp y khoa.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="timeline-year">2006 — 2012</div>
+          <h4>&#127891; Học viện Quân Y</h4>
+          <p>Tốt nghiệp Bác sĩ đa khoa.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-year">2013 — 2019</div>
+          <h4>&#127973; Xanh Pôn · ĐH Y Hà Nội</h4>
+          <p>Nội tổng hợp &amp; Thạc sĩ Nội khoa.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-year">2019 — nay</div>
+          <h4>&#128137; Bệnh viện Bưu Điện</h4>
+          <p>Gây mê Hồi sức &amp; Điều trị Đau.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-year">2024 — 2025</div>
+          <h4>&#127758; Đào tạo quốc tế</h4>
+          <p>PRF Symposium, Pain Fellowship, CME.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f8fafc;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 style="font-size:36px;font-weight:800;letter-spacing:-1px;">Khám phá thêm</h2>
+        <p style="font-size:16px;color:var(--text-secondary);margin-top:8px;">Tìm hiểu sâu hơn về chuyên môn và kiến thức y khoa.</p>
+      </div>
+      <div class="preview-grid">
+        <div class="preview-card">
+          <div class="preview-card-icon">&#128170;</div>
+          <h3>Vấn đề thường gặp</h3>
+          <p>Triệu chứng và hướng xử trí bệnh lý cơ xương khớp.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card-icon">&#127963;</div>
+          <h3>Hội nghị &amp; Diễn đàn</h3>
+          <p>Cập nhật tiến bộ mới trong Điều trị Đau.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card-icon">&#128214;</div>
+          <h3>Góc kiến thức</h3>
+          <p>Bài viết chuyên sâu về kiểm soát cơn đau.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:100px;">
+    <div class="cta-section" style="padding:64px 40px;">
+      <h2>Bắt đầu hành trình điều trị đau.</h2>
+      <p>Đăng ký lịch hẹn thông qua Bệnh viện Bưu Điện.</p>
+      <a href="#" class="btn-young">&#8594; Đặt lịch ngay</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Dr. Trung · Pain Management</p>
+      <p>Bệnh viện Bưu Điện · Hà Nội</p>
+    </div>
+  </footer>
+</body>
+</html>

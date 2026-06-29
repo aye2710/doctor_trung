@@ -45,12 +45,12 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
         }`}
       >
         {/* Event Ordinal Number */}
-        <span className="text-4xl font-serif italic text-primary-blue/30 font-bold leading-none mb-3">
+        <span className="text-4xl font-heading text-primary-blue/30 font-bold leading-none mb-3">
           {orderNum}
         </span>
 
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-serif italic text-medical-navy font-bold leading-snug hover:text-primary-blue transition-colors mb-3">
+        <h3 className="text-xl md:text-2xl font-heading text-medical-navy font-bold leading-snug hover:text-primary-blue transition-colors mb-3">
           {displayTitle}
         </h3>
 

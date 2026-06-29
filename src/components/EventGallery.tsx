@@ -57,7 +57,7 @@ export function EventGallery({ isOpen, onClose, title, images }: EventGalleryPro
       {/* Header bar */}
       <div className="flex items-center justify-between w-full pb-4 border-b border-white/10 z-10">
         <div>
-          <h3 className="text-white text-lg md:text-xl font-serif italic max-w-xs sm:max-w-md md:max-w-2xl truncate">
+          <h3 className="text-white text-lg md:text-xl font-heading max-w-xs sm:max-w-md md:max-w-2xl truncate">
             {displayTitle}
           </h3>
           <p className="text-white/40 text-xs mt-1 uppercase tracking-wider">

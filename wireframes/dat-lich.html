@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Đặt lịch khám</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0b2a4a; --medical-blue: #1261a0; --primary-blue: #1976d2;
+      --light-blue: #eaf4fc; --soft-blue: #f4f9fd; --sky-blue: #d8ecfa;
+      --bg: #f8fbfe; --surface: #ffffff; --text: #162a3a;
+      --text-secondary: #5e7180; --border: #dce8f1; --gold: #c9a84c; --success: #168c88;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; flex-direction: column; text-decoration: none; }
+    .logo-name { font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+    .logo-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--medical-blue); font-weight: 600; margin-top: 1px; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.3px; transition: color 0.2s; position: relative; }
+    nav a:hover, nav a.active { color: var(--navy); }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    .header-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 50px; transition: background 0.2s; }
+    .header-cta:hover { background: var(--medical-blue); }
+
+    .page-banner {
+      padding: 160px 0 80px; background: linear-gradient(135deg, var(--navy) 0%, #0d3558 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-banner::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--medical-blue) 0%, transparent 70%); opacity: 0.15; pointer-events: none; }
+    .page-banner .section-label { color: var(--gold); }
+    .page-banner h1 { font-family: 'Roboto', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; margin: 12px 0 16px; max-width: 700px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 600px; }
+    .gold-line { width: 60px; height: 3px; background: var(--gold); margin-bottom: 8px; }
+
+    section { padding: 80px 0; }
+    .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+    .section-title { font-family: 'Roboto', sans-serif; font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1.2; margin-bottom: 16px; max-width: 700px; }
+    .section-desc { font-size: 16px; color: var(--text-secondary); font-weight: 300; max-width: 600px; margin-bottom: 40px; }
+
+    /* Booking detail */
+    .booking-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: start; }
+    .booking-info { display: flex; flex-direction: column; gap: 32px; }
+    .info-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px; display: flex; gap: 20px; transition: all 0.3s;
+    }
+    .info-card:hover { border-color: var(--gold); }
+    .info-icon {
+      width: 48px; height: 48px; border-radius: 14px; background: var(--light-blue);
+      display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .info-card h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); margin-bottom: 4px; }
+    .info-card .info-main { font-size: 16px; font-weight: 600; color: var(--navy); }
+    .info-card .info-sub { font-size: 13px; color: var(--text-secondary); font-weight: 300; margin-top: 2px; }
+
+    .alert-box {
+      background: var(--light-blue); border: 1px solid var(--sky-blue); border-radius: 16px;
+      padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .alert-box strong { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-blue); }
+    .alert-box p { font-size: 14px; color: var(--navy); font-weight: 300; line-height: 1.6; margin-top: 4px; }
+
+    /* Sidebar CTA */
+    .booking-sidebar {
+      background: var(--soft-blue); border: 1px solid var(--border); border-radius: 24px;
+      padding: 40px; position: sticky; top: 100px;
+    }
+    .booking-sidebar h3 { font-family: 'Roboto', sans-serif; font-size: 24px; color: var(--navy); margin-bottom: 8px; }
+    .booking-sidebar p { font-size: 14px; color: var(--text-secondary); font-weight: 300; margin-bottom: 24px; }
+    .btn-primary { display: block; text-align: center; background: var(--navy); color: #fff; text-decoration: none; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 14px; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--medical-blue); }
+    .btn-outline { display: block; text-align: center; background: #fff; color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 500; padding: 14px 32px; border-radius: 14px; border: 1.5px solid var(--border); margin-top: 12px; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); }
+    .sidebar-note { font-size: 11px; color: var(--text-secondary); font-weight: 300; text-align: center; margin-top: 16px; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-q { font-size: 16px; font-weight: 600; color: var(--navy); display: flex; justify-content: space-between; cursor: pointer; }
+    .faq-a { font-size: 14px; color: var(--text-secondary); font-weight: 300; margin-top: 12px; line-height: 1.7; }
+
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 50px; transition: background 0.2s; }
+    .btn-gold:hover { background: #d4b85a; }
+
+    footer { background: var(--navy); color: #fff; padding: 60px 0 40px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand .logo-name { color: #fff; } .footer-brand .logo-sub { color: var(--sky-blue); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 16px; max-width: 320px; line-height: 1.7; }
+    footer h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 16px; }
+    footer nav a { display: block; font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; font-weight: 300; transition: color 0.2s; }
+    footer nav a:hover { color: var(--gold); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1024px) {
+      .booking-grid { grid-template-columns: 1fr; gap: 32px; }
+      .booking-sidebar { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .page-banner h1 { font-size: 32px; }
+      .section-title { font-size: 28px; }
+      .info-card { flex-direction: column; align-items: flex-start; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .mobile-menu-btn { display: none; cursor: pointer; background: none; border: none; padding: 8px; }
+    @media (max-width: 768px) { .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; } .mobile-menu-btn span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; } }
+    .bg-soft { background: var(--soft-blue); }
+    .border-bottom { border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="gioi-thieu.html" class="logo">
+        <span class="logo-name">Dr. Trung</span>
+        <span class="logo-sub">Chuyên khoa Điều trị Đau</span>
+      </a>
+      <nav>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="chuyen-mon.html">Chuyên môn</a>
+        <a href="hoat-dong.html">Hoạt động</a>
+        <a href="kien-thuc.html">Kiến thức</a>
+        <a href="dat-lich.html" class="active">Đặt lịch</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="dat-lich.html" class="header-cta">&#128197; Đặt lịch khám</a>
+        <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="section-label">Liên hệ &amp; Đặt lịch</div>
+      <div class="gold-line"></div>
+      <h1>Bắt đầu hành trình điều trị đau đúng cách.</h1>
+      <p>Bác sĩ Trung hiện đang thực hiện lịch khám trực tiếp tại bệnh viện công. Người bệnh có thể đăng ký hẹn giờ chính thức thông qua cổng đăng ký y khoa để được hỗ trợ chu đáo.</p>
+    </div>
+  </section>
+
+  <!-- Booking Detail -->
+  <section>
+    <div class="container">
+      <div class="booking-grid">
+
+        <!-- Left: Info -->
+        <div class="booking-info">
+
+          <div class="info-card">
+            <div class="info-icon">&#127973;</div>
+            <div>
+              <h4>Đơn vị công tác</h4>
+              <div class="info-main">Bệnh viện Bưu Điện</div>
+              <div class="info-sub">Khoa Gây mê Hồi sức &amp; Điều trị đau</div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">&#128205;</div>
+            <div>
+              <h4>Địa điểm khám bệnh</h4>
+              <div class="info-main">Phòng khám chuyên khoa Điều trị Đau</div>
+              <div class="info-sub">Sảnh A, Tòa nhà hành chính trung tâm bệnh viện</div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">&#128338;</div>
+            <div>
+              <h4>Lịch khám đề xuất</h4>
+              <div class="info-main">Thứ Hai - Thứ Sáu</div>
+              <div class="info-sub">Sáng 07:30 - Chiều 16:30</div>
+            </div>
+          </div>
+
+          <div class="alert-box">
+            <div style="font-size:24px;flex-shrink:0;">&#9888;&#65039;</div>
+            <div>
+              <strong>Thông báo bắt buộc</strong>
+              <p>Bác sĩ Trung chỉ tiếp nhận khám lâm sàng thông qua hệ thống phân phối lịch hẹn trực tiếp của bệnh viện công tác. <strong style="color:var(--medical-blue);">Không tự tiếp nhận đặt lịch khám riêng bên ngoài hệ thống chính thức.</strong></p>
+            </div>
+          </div>
+
+          <!-- FAQ Mini -->
+          <div style="margin-top:16px;">
+            <h3 style="font-family:'Roboto',sans-serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:8px;">Câu hỏi thường gặp</h3>
+            <div class="faq-item">
+              <div class="faq-q">Tôi cần mang theo giấy tờ gì khi đi khám? <span style="color:var(--gold);">+</span></div>
+              <div class="faq-a">Vui lòng mang theo chứng minh thư/thẻ căn cước, bảo hiểm y tế (nếu có), và các kết quả xét nghiệm/chẩn đoán hình ảnh trước đó (nếu có).</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Thời gian chờ khám trung bình là bao lâu? <span style="color:var(--gold);">+</span></div>
+              <div class="faq-a">Với lịch hẹn trước, thời gian chờ trung bình khoảng 15-30 phút. Người bệnh không có lịch hẹn có thể phải chờ theo thứ tự ưu tiên của bệnh viện.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Bác sĩ có khám bảo hiểm y tế không? <span style="color:var(--gold);">+</span></div>
+              <div class="faq-a">Có. Bác sĩ Trung khám theo đúng quy định của bệnh viện công, bao gồm cả bảo hiểm y tế và dịch vụ khám theo yêu cầu.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: CTA Sidebar -->
+        <div class="booking-sidebar">
+          <h3>Đăng ký khám y khoa</h3>
+          <p>Nhấp vào liên kết dưới đây để chuyển tiếp sang hệ thống xếp hàng y tế trực tuyến của bệnh viện và chọn lịch của Bác sĩ Trung.</p>
+          <a href="#" class="btn-primary">&#128197; Đặt lịch khám tại bệnh viện</a>
+          <a href="#" class="btn-outline">&#128197; Xem lịch khám chi tiết</a>
+          <div class="sidebar-note">Hệ thống đăng ký hoàn toàn tự động. Không thu phí dịch vụ đặt chỗ.</div>
+
+          <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+            <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-secondary);margin-bottom:12px;">Thông tin liên hệ</h4>
+            <div style="font-size:14px;color:var(--text);font-weight:300;">
+              <p style="margin-bottom:6px;"><strong style="font-weight:600;">Hotline BV:</strong> (024) 1234 5678</p>
+              <p style="margin-bottom:6px;"><strong style="font-weight:600;">Địa chỉ:</strong> 49 Trần Điện, Hai Bà Trưng, Hà Nội</p>
+              <p><strong style="font-weight:600;">Email:</strong> contact@drtrung.vn</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Map placeholder -->
+  <section style="padding:0;" class="border-bottom">
+    <div class="container">
+      <div style="border-radius:20px;overflow:hidden;aspect-ratio:21/9;background:linear-gradient(135deg,var(--light-blue),var(--sky-blue));display:flex;align-items:center;justify-content:center;margin-bottom:80px;">
+        <div style="text-align:center;color:var(--medical-blue);">
+          <div style="font-size:40px;margin-bottom:8px;">&#128205;</div>
+          <p style="font-size:14px;">[ Bản đồ Bệnh viện Bưu Điện ]</p>
+          <p style="font-size:12px;opacity:0.7;">49 Trần Điện, Hai Bà Trưng, Hà Nội</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span class="logo-name">Dr. Trung</span><span class="logo-sub">Chuyên khoa Điều trị Đau</span></div>
+          <p>Đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống lâu dài.</p>
+        </div>
+        <div>
+          <h4>Liên kết nhanh</h4>
+          <nav>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="chuyen-mon.html">Chuyên môn</a>
+            <a href="hoat-dong.html">Hoạt động</a>
+            <a href="kien-thuc.html">Kiến thức</a>
+            <a href="dat-lich.html">Đặt lịch khám</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Thông tin công tác</h4>
+          <p style="font-size:14px;color:rgba(255,255,255,0.7);font-weight:300;">Đơn vị công tác:<br><strong style="color:#fff;">Bệnh viện Bưu Điện</strong></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Trung. Bản quyền được bảo lưu.</span>
+        <span>Medical Disclaimer</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

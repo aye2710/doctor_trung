@@ -100,7 +100,7 @@ export function ImageLightbox({
             priority
           />
           <div className="mt-6 text-center text-white max-w-xl">
-            <h3 className="text-xl md:text-2xl font-serif italic font-medium tracking-wide">
+            <h3 className="text-xl md:text-2xl font-heading font-medium tracking-wide">
               {displayTitle}
             </h3>
             {displayIssuer && (

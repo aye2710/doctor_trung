@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Kiến thức Y khoa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0b2a4a; --medical-blue: #1261a0; --primary-blue: #1976d2;
+      --light-blue: #eaf4fc; --soft-blue: #f4f9fd; --sky-blue: #d8ecfa;
+      --bg: #f8fbfe; --surface: #ffffff; --text: #162a3a;
+      --text-secondary: #5e7180; --border: #dce8f1; --gold: #c9a84c; --success: #168c88;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; flex-direction: column; text-decoration: none; }
+    .logo-name { font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+    .logo-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--medical-blue); font-weight: 600; margin-top: 1px; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.3px; transition: color 0.2s; position: relative; }
+    nav a:hover, nav a.active { color: var(--navy); }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    .header-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 50px; transition: background 0.2s; }
+    .header-cta:hover { background: var(--medical-blue); }
+
+    .page-banner {
+      padding: 160px 0 80px; background: linear-gradient(135deg, var(--navy) 0%, #0d3558 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-banner::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--medical-blue) 0%, transparent 70%); opacity: 0.15; pointer-events: none; }
+    .page-banner .section-label { color: var(--gold); }
+    .page-banner h1 { font-family: 'Roboto', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; margin: 12px 0 16px; max-width: 700px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 600px; }
+    .gold-line { width: 60px; height: 3px; background: var(--gold); margin-bottom: 8px; }
+
+    section { padding: 80px 0; }
+    .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+    .section-title { font-family: 'Roboto', sans-serif; font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1.2; margin-bottom: 16px; max-width: 700px; }
+
+    /* Articles Grid */
+    .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .article-card {
+      border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+      background: var(--surface); transition: all 0.3s;
+    }
+    .article-card:hover { border-color: var(--gold); box-shadow: 0 12px 40px rgba(11,42,74,0.06); transform: translateY(-4px); }
+    .article-img {
+      aspect-ratio: 16/10; background: linear-gradient(135deg, var(--light-blue), var(--sky-blue));
+      display: flex; align-items: center; justify-content: center;
+      position: relative; min-height: 180px;
+    }
+    .article-img span { color: var(--medical-blue); font-size: 12px; text-align: center; padding: 8px; }
+    .article-cat-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(255,255,255,0.92); color: var(--medical-blue);
+      font-size: 9px; padding: 4px 12px; border-radius: 50px;
+      letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+    }
+    .article-body { padding: 24px; }
+    .article-meta { display: flex; gap: 16px; font-size: 11px; color: var(--text-secondary); font-weight: 500; margin-bottom: 8px; }
+    .article-body h3 { font-family: 'Roboto', sans-serif; font-size: 18px; color: var(--navy); line-height: 1.3; margin-bottom: 8px; }
+    .article-body p { font-size: 13px; color: var(--text-secondary); font-weight: 300; line-height: 1.7; }
+    .article-cta {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 700; color: var(--primary-blue);
+      text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+      width: 100%; transition: color 0.2s;
+    }
+    .article-cta:hover { color: var(--gold); }
+
+    /* Categories filter */
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 50px; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      background: var(--surface); cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover { border-color: var(--gold); background: var(--gold); color: var(--navy); }
+
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 50px; transition: background 0.2s; }
+    .btn-gold:hover { background: #d4b85a; }
+
+    .cta-banner { background: var(--navy); border-radius: 24px; padding: 56px; color: #fff; text-align: center; }
+    .cta-banner h2 { font-family: 'Roboto', sans-serif; font-size: 34px; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 28px; font-weight: 300; }
+
+    footer { background: var(--navy); color: #fff; padding: 60px 0 40px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand .logo-name { color: #fff; } .footer-brand .logo-sub { color: var(--sky-blue); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 16px; max-width: 320px; line-height: 1.7; }
+    footer h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 16px; }
+    footer nav a { display: block; font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; font-weight: 300; transition: color 0.2s; }
+    footer nav a:hover { color: var(--gold); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1024px) { .article-grid { grid-template-columns: 1fr 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      nav { display: none; } .page-banner h1 { font-size: 32px; } .section-title { font-size: 28px; }
+      .article-grid { grid-template-columns: 1fr; } .cta-banner { padding: 36px 24px; } .cta-banner h2 { font-size: 26px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .mobile-menu-btn { display: none; cursor: pointer; background: none; border: none; padding: 8px; }
+    @media (max-width: 768px) { .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; } .mobile-menu-btn span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; } }
+    .border-bottom { border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="gioi-thieu.html" class="logo">
+        <span class="logo-name">Dr. Trung</span>
+        <span class="logo-sub">Chuyên khoa Điều trị Đau</span>
+      </a>
+      <nav>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="chuyen-mon.html">Chuyên môn</a>
+        <a href="hoat-dong.html">Hoạt động</a>
+        <a href="kien-thuc.html" class="active">Kiến thức</a>
+        <a href="dat-lich.html">Đặt lịch</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="dat-lich.html" class="header-cta">&#128197; Đặt lịch khám</a>
+        <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="section-label">Góc kiến thức Y khoa</div>
+      <div class="gold-line"></div>
+      <h1>Hiểu đúng để kiểm soát đau và chăm sóc sức khỏe đúng cách.</h1>
+      <p>Cung cấp các thông tin y khoa chính quy, bài viết hướng dẫn phòng ngừa và kiểm soát cơn đau dựa trên các cơ sở nghiên cứu lâm sàng tin cậy.</p>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section>
+    <div class="container">
+      <div style="margin-bottom:24px;">
+        <div class="section-label">Bài viết</div>
+        <h2 class="section-title">Kiến thức chuyên môn được cập nhật thường xuyên.</h2>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-bar">
+        <span class="filter-btn active">Tất cả</span>
+        <span class="filter-btn">Đau mạn tính</span>
+        <span class="filter-btn">Công nghệ y khoa</span>
+        <span class="filter-btn">Đau cột sống cổ</span>
+        <span class="filter-btn">Phương pháp điều trị</span>
+        <span class="filter-btn">Bệnh lý thần kinh</span>
+      </div>
+
+      <div class="article-grid">
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Đau mạn tính</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>15/06/2026</span>
+              <span>&#9201; 5 phút</span>
+            </div>
+            <h3>Đau mạn tính là gì? Khi nào bạn nên gặp bác sĩ điều trị đau?</h3>
+            <p>Đau mạn tính kéo dài trên 3 tháng, ảnh hưởng nghiêm trọng đến chất lượng cuộc sống. Tìm hiểu các dấu hiệu nhận biết và khi nào cần can thiệp chuyên khoa.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Công nghệ y khoa</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>10/06/2026</span>
+              <span>&#9201; 6 phút</span>
+            </div>
+            <h3>Sóng cao tần RF/PRF là gì? Giải pháp điều trị đau không phẫu thuật</h3>
+            <p>RF và PRF là phương pháp can thiệp giảm đau tiên tiến, ứng dụng sóng cao tần tác động lên dây thần kinh mà không cần phẫu thuật.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Đau cột sống cổ</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>05/06/2026</span>
+              <span>&#9201; 4 phút</span>
+            </div>
+            <h3>Đau cổ vai gáy do đâu và khi nào cần điều trị chuyên sâu?</h3>
+            <p>Phân tích nguyên nhân và các phương pháp điều trị từ cơ bản đến can thiệp chuyên sâu cho tình trạng đau mỏi vai gáy kéo dài.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Phương pháp điều trị</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>28/05/2026</span>
+              <span>&#9201; 5 phút</span>
+            </div>
+            <h3>TMS (Từ trường xuyên sọ) &mdash; Phương pháp mới trong điều trị đau</h3>
+            <p>TMS kích thích từ trường lên vỏ não, giúp điều chỉnh các tín hiệu đau. Lựa chọn không xâm lấn, không dùng thuốc cho nhiều bệnh lý đau mạn tính.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Góc cảnh giác</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>20/05/2026</span>
+              <span>&#9201; 7 phút</span>
+            </div>
+            <h3>Đau sau Zona thần kinh: Biến chứng cần được điều trị sớm</h3>
+            <p>Đau sau Zona là biến chứng thường gặp, gây đau kéo dài. Phát hiện và can thiệp sớm giúp ngăn ngừa chuyển sang đau mạn tính.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-img">
+            <span>[ Minh họa ]</span>
+            <span class="article-cat-badge">Bệnh lý thần kinh</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span>12/05/2026</span>
+              <span>&#9201; 4 phút</span>
+            </div>
+            <h3>Đau dây thần kinh chẩm: Triệu chứng và hướng điều trị hiệu quả</h3>
+            <p>Đau dây thần kinh chẩm gây đau nhức vùng đầu và cổ, dễ nhầm với đau đầu thông thường. Phương pháp chẩn đoán và điều trị từ nội khoa đến can thiệp.</p>
+            <a href="#article" class="article-cta">Đọc bài viết &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:80px 0 0;">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Có thắc mắc về tình trạng của bạn?</h2>
+        <p>Đặt lịch khám để được Bác sĩ Trung tư vấn trực tiếp và có phác đồ điều trị phù hợp nhất.</p>
+        <a href="dat-lich.html" class="btn-gold">&#128197; Đặt lịch khám ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span class="logo-name">Dr. Trung</span><span class="logo-sub">Chuyên khoa Điều trị Đau</span></div>
+          <p>Đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống lâu dài.</p>
+        </div>
+        <div>
+          <h4>Liên kết nhanh</h4>
+          <nav>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="chuyen-mon.html">Chuyên môn</a>
+            <a href="hoat-dong.html">Hoạt động</a>
+            <a href="kien-thuc.html">Kiến thức</a>
+            <a href="dat-lich.html">Đặt lịch khám</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Thông tin công tác</h4>
+          <p style="font-size:14px;color:rgba(255,255,255,0.7);font-weight:300;">Đơn vị công tác:<br><strong style="color:#fff;">Bệnh viện Bưu Điện</strong></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Trung. Bản quyền được bảo lưu.</span>
+        <span>Medical Disclaimer</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

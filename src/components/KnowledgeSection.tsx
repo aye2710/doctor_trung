@@ -13,13 +13,13 @@ export function KnowledgeSection() {
         
         {/* Section Header */}
         <div className="text-left max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest font-mono text-medical-blue font-bold">
+          <span className="text-xs uppercase tracking-[3px] font-semibold text-secondary">
             GÓC KIẾN THỨC Y KHOA
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary leading-tight mt-2 mb-3">
             Hiểu đúng để kiểm soát đau và chăm sóc sức khỏe đúng cách.
           </h2>
-          <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
+          <p className="text-base md:text-lg text-text-secondary leading-relaxed">
             Cung cấp các thông tin y khoa chính quy, bài viết hướng dẫn phòng ngừa và kiểm soát cơn đau dựa trên các cơ sở nghiên cứu lâm sàng tin cậy.
           </p>
         </div>

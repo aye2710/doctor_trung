@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Giới thiệu · Modern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #111;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --accent: #1976d2;
+      --accent-light: #e8f0fe;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 10px; font-weight: 400; color: var(--text-secondary); display: block; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--text); }
+
+    section { padding: 96px 0; }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px; font-weight: 600; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+      max-width: 600px; margin-bottom: 48px;
+    }
+
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; padding-top: 64px;
+      background: #f9fafb; position: relative;
+    }
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 52px; font-weight: 700; color: var(--text);
+      line-height: 1.05; letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero p {
+      font-size: 16px; color: var(--text-secondary); font-weight: 400;
+      line-height: 1.6; margin-bottom: 32px; max-width: 480px;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 12px 28px; border-radius: 6px;
+      transition: opacity 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.9; }
+    .hero-image {
+      aspect-ratio: 4/5; border-radius: 4px; overflow: hidden;
+      background: var(--accent-light);
+    }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+    .profile-card {
+      border: 1px solid var(--border); border-radius: 8px; padding: 32px;
+    }
+    .profile-card h3 { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+    .profile-card .specialty { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+    .profile-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .profile-item { display: flex; gap: 12px; margin-bottom: 16px; }
+    .profile-item-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); min-width: 90px; }
+    .profile-item-value { font-size: 14px; color: var(--text); font-weight: 400; }
+    .profile-image {
+      border-radius: 4px; overflow: hidden; position: relative;
+      background: var(--accent-light); aspect-ratio: 16/10;
+    }
+
+    .principles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .principle-card { background: #fff; padding: 40px 32px; }
+    .principle-card h4 { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .principle-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    .timeline { max-width: 700px; }
+    .timeline-item { display: flex; gap: 24px; margin-bottom: 40px; }
+    .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex-shrink: 0; }
+    .timeline-period { font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 2px; }
+    .timeline-item h4 { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+    .timeline-item p { font-size: 14px; color: var(--text-secondary); max-width: 500px; }
+
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); }
+    .preview-card { background: #fff; padding: 40px 32px; }
+    .preview-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .preview-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+    .preview-link { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
+
+    .cta-section { background: var(--accent); color: #fff; text-align: center; }
+    .cta-section h2 { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; margin-bottom: 12px; }
+    .cta-section p { font-size: 15px; opacity: 0.8; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--accent); text-decoration: none;
+      font-size: 14px; font-weight: 500; padding: 12px 28px; border-radius: 6px;
+    }
+
+    footer { background: #f9fafb; border-top: 1px solid var(--border); padding: 40px 0; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="gioi-thieu-modern.html" class="logo">Dr. Trung<span class="logo-sub">Pain Management</span></a>
+      <nav>
+        <a href="gioi-thieu-modern.html" class="active">Giới thiệu</a>
+        <a href="#">Chuyên môn</a>
+        <a href="#">Hoạt động</a>
+        <a href="#">Kiến thức</a>
+        <a href="#">Đặt lịch</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>Chuyên gia <span class="highlight">Điều trị Đau</span> với hơn 12 năm kinh nghiệm.</h1>
+        <p>Thạc sĩ. Bác sĩ Đàm Quang Trung — Gây mê Hồi sức &amp; Điều trị Đau tại Bệnh viện Bưu Điện.</p>
+        <a href="#" class="hero-cta">&#8594; Đặt lịch khám</a>
+      </div>
+      <div class="hero-image"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3>Thạc sĩ. Bs Đàm Quang Trung</h3>
+          <div class="specialty">Gây mê Hồi sức &amp; Điều trị Đau</div>
+          <div class="profile-divider"></div>
+          <div class="profile-item">
+            <div class="profile-item-label">Học vị</div>
+            <div class="profile-item-value">Thạc sĩ Nội khoa · ĐH Y Hà Nội</div>
+          </div>
+          <div class="profile-item">
+            <div class="profile-item-label">Chức danh</div>
+            <div class="profile-item-value">Bác sĩ Gây mê Hồi sức</div>
+          </div>
+          <div class="profile-item">
+            <div class="profile-item-label">Công tác</div>
+            <div class="profile-item-value">Bệnh viện Bưu Điện</div>
+          </div>
+          <div class="profile-item">
+            <div class="profile-item-label">Kinh nghiệm</div>
+            <div class="profile-item-value">12+ năm lâm sàng</div>
+          </div>
+        </div>
+        <div class="profile-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f9fafb;">
+    <div class="container">
+      <div class="section-title">Nguyên tắc điều trị</div>
+      <div class="section-desc">Mỗi quyết định điều trị đều dựa trên những nguyên tắc giúp người bệnh giảm đau an toàn và bền vững.</div>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Điều trị đúng nguyên nhân</h4>
+          <p>Chẩn đoán chính xác để xây dựng phác đồ điều trị hiệu quả.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Ưu tiên ít xâm lấn</h4>
+          <p>Lựa chọn phương pháp an toàn trước khi cân nhắc can thiệp lớn.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Cá nhân hóa</h4>
+          <p>Phác đồ phù hợp với từng người bệnh và điều kiện sống.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Đồng hành lâu dài</h4>
+          <p>Theo dõi và tối ưu kết quả điều trị nâng cao chất lượng sống.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">Hành trình chuyên môn</div>
+      <div class="section-desc">Những cột mốc trong sự nghiệp y khoa.</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-period">2006 — 2012</div>
+            <h4>Học viện Quân Y</h4>
+            <p>Tốt nghiệp Bác sĩ đa khoa.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-period">2013 — 2019</div>
+            <h4>Bệnh viện Xanh Pôn &amp; ĐH Y Hà Nội</h4>
+            <p>Kinh nghiệm Nội tổng hợp và Thạc sĩ Nội khoa.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-period">2019 — nay</div>
+            <h4>Bệnh viện Bưu Điện</h4>
+            <p>Gây mê Hồi sức &amp; Điều trị Đau.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <div class="timeline-period">2024 — 2025</div>
+            <h4>Đào tạo quốc tế</h4>
+            <p>PRF Symposium, Pain Fellowship, CME quốc tế.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f9fafb;">
+    <div class="container">
+      <div class="section-title">Chuyên môn &amp; Kiến thức</div>
+      <div class="section-desc">Tìm hiểu thêm về lĩnh vực điều trị và bài viết y khoa.</div>
+      <div class="preview-grid">
+        <div class="preview-card">
+          <h3>Vấn đề thường gặp</h3>
+          <p>Dấu hiệu, triệu chứng và hướng xử trí bệnh lý cơ xương khớp.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+        <div class="preview-card">
+          <h3>Hội nghị &amp; Diễn đàn</h3>
+          <p>Cập nhật tiến bộ mới trong lĩnh vực Điều trị Đau.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+        <div class="preview-card">
+          <h3>Góc kiến thức</h3>
+          <p>Bài viết chuyên sâu về kiểm soát cơn đau và phục hồi vận động.</p>
+          <a href="#" class="preview-link">Xem chi tiết &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="padding:80px 0;">
+    <div class="container">
+      <h2>Bắt đầu hành trình điều trị đau đúng cách.</h2>
+      <p>Đăng ký lịch hẹn thông qua hệ thống khám chữa bệnh của Bệnh viện Bưu Điện.</p>
+      <a href="#" class="btn-white">&#8594; Đặt lịch khám</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Thạc sĩ. Bác sĩ Đàm Quang Trung</p>
+      <p>Bệnh viện Bưu Điện · Hà Nội</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -94,5 +94,21 @@ export const medicalEvents: MedicalEvent[] = [
       { src: "/images/events/event-05/img-1.png", alt: "Chứng nhận tham gia Hội nghị PT Thần kinh VN lần thứ 23" },
       { src: "/images/events/event-05/img-2.png", alt: "Chứng nhận tham gia Hội nghị PT Thần kinh Trẻ Việt Nam" }
     ]
+  },
+  {
+    id: "event-06",
+    title: "Hội nghị khoa học ERAS trong thực hành Gây mê Hồi sức",
+    type: "Hội nghị",
+    date: "2025",
+    location: "Việt Nam",
+    summary: "Tham dự hội nghị khoa học ERAS (Enhanced Recovery After Surgery), cập nhật các phác đồ tiên tiến trong thực hành gây mê hồi sức giúp bệnh nhân hồi phục nhanh sau phẫu thuật.",
+    coverImage: "/images/events/event-eras/z7982894041430_896731903b5bbda9f861035a25a33f0f.jpg",
+    images: [
+      { src: "/images/events/event-eras/z7982894041430_896731903b5bbda9f861035a25a33f0f.jpg", alt: "Bác sĩ Trung tại Hội nghị khoa học ERAS" },
+      { src: "/images/events/event-eras/z7982894053092_b8a825ff69034abf94985f78d6e119d8.jpg", alt: "Tham dự phiên thảo luận tại Hội nghị ERAS" },
+      { src: "/images/events/event-eras/z7982894806208_a9d603518110ebbc6efe480e742394af.jpg", alt: "Bác sĩ Trung chụp ảnh cùng các đại biểu tham dự" },
+      { src: "/images/events/event-eras/z7982896031058_0e186f59b41f85412a98f96db34334bd.jpg", alt: "Hoạt động chuyên môn tại Hội nghị ERAS" },
+      { src: "/images/events/event-eras/z7982896061993_682af88603689c31c0769edc6701d44e.jpg", alt: "Bác sĩ Trung trao đổi cùng đồng nghiệp chuyên ngành" },
+    ]
   }
 ];

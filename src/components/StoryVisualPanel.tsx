@@ -48,7 +48,7 @@ export function StoryVisualPanel({ activeSection }: StoryVisualPanelProps) {
         </div>
         
         {/* Cinematic Title & Subtitle */}
-        <h3 className="text-2xl font-serif italic text-white tracking-wide leading-tight">
+        <h3 className="text-2xl font-heading text-white tracking-wide leading-tight">
           {currentVisual.title}
         </h3>
         {currentVisual.subtitle && (

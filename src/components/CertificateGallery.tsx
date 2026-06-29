@@ -35,19 +35,19 @@ export function CertificateGallery() {
   return (
     <SectionReveal
       id="certificates"
-      className="py-20 bg-background relative border-b border-border"
+      className="py-20 bg-background relative"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest font-mono text-medical-blue font-bold">
-            CHỨNG NHẬN CHUYÊN MÔN
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-base uppercase tracking-[3px] font-semibold text-secondary">
+            CHỨNG CHỈ CHUYÊN MÔN
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary leading-tight mt-2 mb-3">
             Những dấu mốc chuyên môn trên hành trình chăm sóc người bệnh.
           </h2>
-          <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
+          <p className="text-base md:text-lg text-text-secondary leading-relaxed">
             Các chứng nhận và chương trình đào tạo thể hiện quá trình học tập, cập nhật kiến thức và phát triển năng lực chuyên môn của Bác sĩ Trung.
           </p>
         </div>

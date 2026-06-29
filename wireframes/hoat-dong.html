@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Trung | Hoạt động</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0b2a4a; --medical-blue: #1261a0; --primary-blue: #1976d2;
+      --light-blue: #eaf4fc; --soft-blue: #f4f9fd; --sky-blue: #d8ecfa;
+      --bg: #f8fbfe; --surface: #ffffff; --text: #162a3a;
+      --text-secondary: #5e7180; --border: #dce8f1; --gold: #c9a84c; --success: #168c88;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; flex-direction: column; text-decoration: none; }
+    .logo-name { font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+    .logo-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--medical-blue); font-weight: 600; margin-top: 1px; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.3px; transition: color 0.2s; position: relative; }
+    nav a:hover, nav a.active { color: var(--navy); }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    .header-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 24px; border-radius: 50px; transition: background 0.2s; }
+    .header-cta:hover { background: var(--medical-blue); }
+
+    .page-banner {
+      padding: 160px 0 80px; background: linear-gradient(135deg, var(--navy) 0%, #0d3558 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .page-banner::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--medical-blue) 0%, transparent 70%); opacity: 0.15; pointer-events: none; }
+    .page-banner .section-label { color: var(--gold); }
+    .page-banner h1 { font-family: 'Roboto', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; margin: 12px 0 16px; max-width: 700px; }
+    .page-banner p { font-size: 17px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 600px; }
+    .gold-line { width: 60px; height: 3px; background: var(--gold); margin-bottom: 8px; }
+
+    section { padding: 80px 0; }
+    .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+    .section-title { font-family: 'Roboto', sans-serif; font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1.2; margin-bottom: 16px; max-width: 700px; }
+    .section-desc { font-size: 16px; color: var(--text-secondary); font-weight: 300; max-width: 600px; margin-bottom: 40px; }
+
+    /* Event Detail Items */
+    .event-detail-item {
+      display: grid; grid-template-columns: 5fr 7fr; gap: 48px;
+      padding: 48px 0; border-bottom: 1px solid var(--border); align-items: center;
+    }
+    .event-detail-item:first-child { padding-top: 0; }
+    .event-detail-item:last-child { border-bottom: none; }
+    .event-cover {
+      aspect-ratio: 4/3; border-radius: 20px; overflow: hidden;
+      background: linear-gradient(135deg, var(--light-blue), var(--sky-blue));
+      display: flex; align-items: center; justify-content: center;
+      position: relative; min-height: 240px;
+    }
+    .event-cover span { color: var(--medical-blue); font-size: 13px; }
+    .event-type-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: rgba(11,42,74,0.85); color: #fff; font-size: 10px;
+      padding: 5px 14px; border-radius: 50px; letter-spacing: 1.5px;
+      text-transform: uppercase; font-weight: 600;
+    }
+    .event-ordinal { font-family: 'Roboto', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 4px; }
+    .event-detail-item h3 { font-family: 'Roboto', sans-serif; font-size: 24px; color: var(--navy); margin-bottom: 12px; }
+    .event-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+    .event-meta-item { font-size: 12px; display: flex; align-items: center; gap: 6px; background: var(--soft-blue); padding: 6px 14px; border-radius: 8px; color: var(--text-secondary); font-weight: 500; }
+    .event-detail-item p { font-size: 15px; color: var(--text-secondary); font-weight: 300; line-height: 1.8; }
+    .event-thumbs { display: flex; gap: 10px; margin-top: 20px; }
+    .event-thumb { width: 64px; height: 48px; border-radius: 8px; background: var(--light-blue); display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--medical-blue); }
+    .event-gallery-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: var(--primary-blue); text-decoration: none;
+      letter-spacing: 1px; text-transform: uppercase; margin-top: 16px; transition: color 0.2s;
+    }
+    .event-gallery-btn:hover { color: var(--gold); }
+
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 50px; transition: background 0.2s; }
+    .btn-gold:hover { background: #d4b85a; }
+
+    footer { background: var(--navy); color: #fff; padding: 60px 0 40px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand .logo-name { color: #fff; } .footer-brand .logo-sub { color: var(--sky-blue); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 16px; max-width: 320px; line-height: 1.7; }
+    footer h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 16px; }
+    footer nav a { display: block; font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; font-weight: 300; transition: color 0.2s; }
+    footer nav a:hover { color: var(--gold); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1024px) {
+      .event-detail-item { grid-template-columns: 1fr; gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .page-banner h1 { font-size: 32px; }
+      .section-title { font-size: 28px; }
+      .event-ordinal { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .mobile-menu-btn { display: none; cursor: pointer; background: none; border: none; padding: 8px; }
+    @media (max-width: 768px) { .mobile-menu-btn { display: flex; flex-direction: column; gap: 4px; } .mobile-menu-btn span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; } }
+    .bg-soft { background: var(--soft-blue); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="gioi-thieu.html" class="logo">
+        <span class="logo-name">Dr. Trung</span>
+        <span class="logo-sub">Chuyên khoa Điều trị Đau</span>
+      </a>
+      <nav>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="chuyen-mon.html">Chuyên môn</a>
+        <a href="hoat-dong.html" class="active">Hoạt động</a>
+        <a href="kien-thuc.html">Kiến thức</a>
+        <a href="dat-lich.html">Đặt lịch</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="dat-lich.html" class="header-cta">&#128197; Đặt lịch khám</a>
+        <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="section-label">Hoạt động chuyên ngành</div>
+      <div class="gold-line"></div>
+      <h1>Hội nghị &middot; Diễn đàn &middot; Hội thảo</h1>
+      <p>Bác sĩ Trung thường xuyên tham gia các hội nghị, diễn đàn và chương trình trao đổi chuyên môn nhằm cập nhật kiến thức và chia sẻ kinh nghiệm trong lĩnh vực Điều trị Đau &amp; Gây mê Hồi sức.</p>
+    </div>
+  </section>
+
+  <!-- Danh sách sự kiện -->
+  <section>
+    <div class="container">
+      <div style="margin-bottom:24px;">
+        <div class="section-label">Sự kiện tiêu biểu</div>
+        <h2 class="section-title">Kết nối chuyên môn và cập nhật những tiến bộ mới trong y khoa.</h2>
+      </div>
+
+      <div class="event-detail-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-type-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-ordinal">01</div>
+          <h3>Báo cáo viên VNC 2024 &mdash; Hội nghị Đau toàn quốc</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tham gia với tư cách báo cáo viên, chia sẻ kinh nghiệm lâm sàng trong điều trị đau mạn tính bằng sóng cao tần và các phương pháp can thiệp giảm đau không xâm lấn.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-detail-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-type-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-ordinal">02</div>
+          <h3>Báo cáo viên VNC 2025 &mdash; Hội nghị Đau toàn quốc</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2025</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tiếp tục tham gia với tư cách báo cáo viên, cập nhật các tiến bộ mới trong điều trị đau và chia sẻ ca lâm sàng ứng dụng PRF trong thực hành.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-detail-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-type-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-ordinal">03</div>
+          <h3>Hội nghị Đau Quốc tế &mdash; Thái Lan 2024</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024</span>
+            <span class="event-meta-item">&#128205; Thái Lan</span>
+          </div>
+          <p>Tham dự hội nghị quốc tế chuyên ngành Đau tại Thái Lan, trao đổi kinh nghiệm cùng các chuyên gia hàng đầu trong khu vực về các phương pháp điều trị đau mạn tính tiên tiến.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-detail-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-type-badge">Diễn đàn</span>
+        </div>
+        <div>
+          <div class="event-ordinal">04</div>
+          <h3>The 4th Evolution of PRF Symposium &mdash; Hà Lan - Pháp</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 11/2025</span>
+            <span class="event-meta-item">&#128205; Hà Lan - Pháp</span>
+          </div>
+          <p>Tham gia khóa đào tạo chuyên sâu về PRF (Pulsed Radiofrequency) đạt chuẩn CME Châu Âu (6.0 CME), cập nhật các kỹ thuật can thiệp tiên tiến nhất trong điều trị đau.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+      <div class="event-detail-item">
+        <div class="event-cover">
+          <span>[ Hình ảnh sự kiện ]</span>
+          <span class="event-type-badge">Hội nghị</span>
+        </div>
+        <div>
+          <div class="event-ordinal">05</div>
+          <h3>Hội nghị Phẫu thuật Thần kinh Việt Nam</h3>
+          <div class="event-meta">
+            <span class="event-meta-item">&#128197; 2024-2025</span>
+            <span class="event-meta-item">&#128205; Việt Nam</span>
+          </div>
+          <p>Tham gia chuỗi hội nghị Phẫu thuật Thần kinh Việt Nam (lần 23, 24 và Hội nghị Trẻ), cập nhật các tiến bộ trong điều trị đau và kết nối với mạng lưới chuyên gia y khoa trong nước.</p>
+          <div class="event-thumbs">
+            <div class="event-thumb">[Ảnh]</div>
+            <div class="event-thumb">[Ảnh]</div>
+          </div>
+          <a href="#gallery" class="event-gallery-btn">&#128247; Xem hình ảnh sự kiện</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span class="logo-name">Dr. Trung</span><span class="logo-sub">Chuyên khoa Điều trị Đau</span></div>
+          <p>Đồng hành cùng người bệnh trong quá trình kiểm soát cơn đau, phục hồi vận động và duy trì chất lượng cuộc sống lâu dài.</p>
+        </div>
+        <div>
+          <h4>Liên kết nhanh</h4>
+          <nav>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="chuyen-mon.html">Chuyên môn</a>
+            <a href="hoat-dong.html">Hoạt động</a>
+            <a href="kien-thuc.html">Kiến thức</a>
+            <a href="dat-lich.html">Đặt lịch khám</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Thông tin công tác</h4>
+          <p style="font-size:14px;color:rgba(255,255,255,0.7);font-weight:300;">Đơn vị công tác:<br><strong style="color:#fff;">Bệnh viện Bưu Điện</strong></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Trung. Bản quyền được bảo lưu.</span>
+        <span>Medical Disclaimer</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

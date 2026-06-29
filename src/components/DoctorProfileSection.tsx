@@ -1,71 +1,45 @@
 import { doctorProfile } from "../data/doctorProfile";
 import { DoctorProfileCard } from "./DoctorProfileCard";
 import { SectionReveal } from "./SectionReveal";
-import { OptimizedImage } from "./common/OptimizedImage";
 
 export function DoctorProfileSection() {
   return (
     <SectionReveal
       id="doctor-profile"
-      className="py-20 bg-soft-blue/60 border-y border-border relative"
+      className="py-20 bg-background relative"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-widest font-mono text-medical-blue font-bold">
-            THÔNG TIN BÁC SĨ
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-base uppercase tracking-[3px] font-semibold text-secondary">
+            LÝ DO CHỌN BÁC SĨ
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif text-medical-navy italic tracking-tight leading-tight mt-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary leading-tight mt-2 mb-3">
             Chuyên môn Điều trị Đau được xây dựng từ quá trình học tập và thực hành lâm sàng.
           </h2>
-          <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
+          <p className="text-sm md:text-base text-text-secondary leading-relaxed max-w-[560px] mx-auto">
             Bác sĩ Trung hiện công tác tại Bệnh viện Bưu Điện trong lĩnh vực Gây mê Hồi sức & Điều trị đau, tập trung vào các phương pháp can thiệp giảm đau không xâm lấn, không phẫu thuật.
           </p>
         </div>
 
-        {/* Section Content Grid */}
+        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column - Structural Card (4-5 Cols) */}
-          <div className="lg:col-span-5 xl:col-span-4">
+          {/* Left Column - Profile Card */}
+          <div className="lg:col-span-5">
             <DoctorProfileCard profile={doctorProfile} />
           </div>
 
-          {/* Right Column - Storytelling narrative & workspace photo (7-8 Cols) */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-8 text-left">
-            
-            {/* Biography Paragraphs */}
-            <div className="flex flex-col gap-4 text-base md:text-lg text-text-secondary leading-relaxed font-light">
-              {doctorProfile.fullIntroduction.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
+          {/* Right Column - Working Image */}
+          <div className="lg:col-span-7">
+            <div className="rounded-[20px] overflow-hidden aspect-[4/3] bg-gradient-to-br from-light-blue to-sky-blue flex items-center justify-center border border-border">
+              {doctorProfile.workingImage ? (
+                <img src={doctorProfile.workingImage} alt="Bác sĩ Trung tại nơi làm việc" className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-sm text-medical-blue/50">[ Hình ảnh bác sĩ tại nơi làm việc ]</span>
+              )}
             </div>
-
-            {/* Quote block */}
-            <blockquote className="bg-surface border-l-4 border-primary-blue rounded-r-xl p-5 md:p-6 shadow-xs italic text-medical-navy font-serif text-lg">
-              &ldquo;Điều trị đau mạn tính là một hành trình, không phải một lần can thiệp đơn lẻ. Cần kiên nhẫn để thấu hiểu cơn đau, tìm đúng nguyên nhân và đồng hành cùng người bệnh lấy lại chất lượng cuộc sống.&rdquo;
-              <cite className="block text-xs uppercase tracking-widest text-text-secondary font-mono font-bold not-italic mt-3">
-                — Bác sĩ Trung
-              </cite>
-            </blockquote>
-
-            {/* Clinical Working Image */}
-            {doctorProfile.workingImage && (
-              <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video max-h-80 w-full mt-2 border border-border">
-                <OptimizedImage
-                  src={doctorProfile.workingImage}
-                  alt="Bác sĩ Trung đang trao đổi lâm sàng cùng bệnh nhân"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-101"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                  <p className="text-white text-xs md:text-sm font-sans font-light">
-                    Môi trường làm việc lâm sàng thân thiện, gần gũi và tối ưu hóa trải nghiệm thăm khám cho người bệnh.
-                  </p>
-                </div>
-              </div>
-            )}
-
           </div>
 
         </div>
