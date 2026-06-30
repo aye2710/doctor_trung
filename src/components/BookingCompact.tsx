@@ -9,7 +9,7 @@ export function BookingCompact() {
   return (
     <SectionReveal id="booking" className="py-16 bg-background">
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-        <div className="bg-medical-navy rounded-2xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="bg-primary rounded-2xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="text-left">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-white leading-tight">
               Bắt đầu hành trình điều trị đau đúng cách.

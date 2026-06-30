@@ -29,7 +29,7 @@ export function PatientJourney() {
   return (
     <SectionReveal
       id="journey"
-      className="py-20 bg-background relative"
+      className="py-20 bg-soft-blue relative"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         
@@ -53,7 +53,7 @@ export function PatientJourney() {
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <StaggerItem key={step.title} className="relative">
+                <StaggerItem key={step.title} className="relative rounded-[24px] shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
                   {/* Dot */}
                   <div className="w-9 h-9 rounded-full border-[2.5px] border-gold bg-background flex items-center justify-center mb-4 relative z-10">
                     <div className="w-3.5 h-3.5 rounded-full bg-gold" />

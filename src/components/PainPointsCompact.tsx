@@ -43,7 +43,7 @@ export function PainPointsCompact() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {painPoints.map((point, i) => (
-            <div key={i} className="bg-surface border border-border rounded-2xl overflow-hidden text-left hover:border-secondary hover:shadow-md transition-all duration-200 group">
+            <div key={i} className="bg-surface border border-border rounded-[24px] overflow-hidden text-left hover:border-secondary hover:shadow-md transition-all duration-200 group">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={point.image}

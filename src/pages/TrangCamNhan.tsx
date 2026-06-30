@@ -16,7 +16,7 @@ export function TrangCamNhan() {
 
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="text-xs uppercase tracking-[3px] font-semibold text-secondary">
+              <span className="text-base uppercase tracking-[3px] font-semibold text-secondary">
                 CẢM NHẬN BỆNH NHÂN
               </span>
               <h1 className="text-3xl md:text-5xl font-heading font-bold text-primary leading-tight mt-3 mb-4">
@@ -35,12 +35,12 @@ export function TrangCamNhan() {
 
                     <Quote className="w-8 h-8 text-secondary/30 flex-shrink-0" />
 
-                    <p className="text-sm md:text-base text-text-secondary leading-relaxed font-light font-sans italic">
+                    <p className="text-sm md:text-base text-text-secondary leading-relaxed italic">
                       &ldquo;{item.content}&rdquo;
                     </p>
 
                     <div className="border-t border-border/60 pt-4 mt-auto">
-                      <p className="text-sm font-semibold text-primary font-sans">
+                      <p className="text-sm font-semibold text-primary">
                         {item.name}
                       </p>
                       <p className="text-xs text-text-secondary/70 font-light">

@@ -35,7 +35,7 @@ export function CertificateGallery() {
   return (
     <SectionReveal
       id="certificates"
-      className="py-20 bg-background relative"
+      className="py-20 bg-soft-blue relative"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         

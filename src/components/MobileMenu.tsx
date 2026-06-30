@@ -115,7 +115,7 @@ export function MobileMenu({ isOpen, onClose, activeSection }: MobileMenuProps) 
           <Link
             to="/dat-lich"
             onClick={onClose}
-            className="flex items-center justify-center bg-medical-navy hover:bg-medical-blue text-white rounded-xl text-base font-semibold transition-colors"
+            className="flex items-center justify-center bg-primary hover:bg-primary-900 text-white rounded-xl text-base font-semibold transition-colors"
             style={{ minHeight: "48px" }}
           >
             Đặt lịch khám

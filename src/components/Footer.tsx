@@ -5,7 +5,7 @@ export function Footer() {
   const displayHospital = doctorProfile.hospital.replace(/^\[|\]$/g, "");
 
   return (
-    <footer className="bg-medical-navy text-white pt-40 pb-10 -mt-20 relative z-10">
+    <footer className="bg-primary-900 text-white pt-40 pb-10 -mt-20 relative z-10">
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 relative">
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 pb-10 border-b border-white/10">

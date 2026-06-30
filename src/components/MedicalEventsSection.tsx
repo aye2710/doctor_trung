@@ -18,19 +18,19 @@ export function MedicalEventsSection() {
   return (
     <SectionReveal
       id="events"
-      className="py-20 bg-soft-blue/30 border-b border-border"
+      className="py-20 bg-soft-blue"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-3xl mb-12">
-          <span className="text-xs uppercase tracking-[3px] font-semibold text-secondary">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-base uppercase tracking-[3px] font-semibold text-secondary">
             HỘI NGHỊ · DIỄN ĐÀN · HỘI THẢO
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary leading-tight mt-2 mb-3">
             Kết nối chuyên môn và cập nhật những tiến bộ mới trong y khoa.
           </h2>
-          <p className="text-base md:text-lg text-text-secondary leading-relaxed font-light">
+          <p className="text-base md:text-lg text-text-secondary leading-relaxed">
             Bác sĩ Trung thường xuyên tham gia các hội nghị, diễn đàn và chương trình trao đổi chuyên môn nhằm cập nhật kiến thức và chia sẻ kinh nghiệm trong lĩnh vực Điều trị Đau & Gây mê Hồi sức.
           </p>
         </div>

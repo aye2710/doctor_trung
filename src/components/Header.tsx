@@ -86,7 +86,7 @@ export function Header({ activeSection, onMobileMenuOpen }: HeaderProps) {
         <div className="flex items-center gap-4">
           <Link
             to="/dat-lich"
-            className="hidden sm:inline-flex items-center justify-center bg-medical-navy hover:bg-medical-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm"
+            className="hidden sm:inline-flex items-center justify-center bg-primary hover:bg-primary-900 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm"
           >
             Đặt lịch khám
           </Link>

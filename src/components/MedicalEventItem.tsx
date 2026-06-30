@@ -33,7 +33,7 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
         />
         
         {/* Type Badge */}
-        <span className="absolute top-4 left-4 bg-medical-navy/80 backdrop-blur-xs text-white text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+        <span className="absolute top-4 left-4 bg-medical-navy/80 backdrop-blur-xs text-white text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-wider">
           {event.type}
         </span>
       </div>
@@ -55,7 +55,7 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
         </h3>
 
         {/* Event Metadata (Date, Location) */}
-        <div className="flex flex-wrap gap-4 text-xs font-mono font-medium text-text-secondary mb-4">
+        <div className="flex flex-wrap gap-4 text-xs text-text-secondary mb-4">
           {displayDate && (
             <span className="flex items-center gap-1.5 bg-soft-blue px-2.5 py-1 rounded-md border border-border/40">
               <Calendar className="w-3.5 h-3.5 text-medical-blue" />
@@ -71,7 +71,7 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
         </div>
 
         {/* Summary Description */}
-        <p className="text-sm md:text-base text-text-secondary leading-relaxed font-light mb-6">
+        <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6">
           {event.summary}
         </p>
 
@@ -93,7 +93,7 @@ export function MedicalEventItem({ event, index, onOpenGallery }: MedicalEventIt
           {/* Trigger Button */}
           <button
             onClick={onOpenGallery}
-            className="inline-flex items-center gap-2 text-xs font-mono font-bold text-primary-blue hover:text-medical-blue uppercase tracking-widest cursor-pointer focus:outline-2 focus:outline-primary-blue p-2 -m-2 rounded transition-colors ml-auto lg:ml-0"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-primary-blue hover:text-medical-blue uppercase tracking-widest cursor-pointer focus:outline-2 focus:outline-primary-blue p-2 -m-2 rounded transition-colors ml-auto lg:ml-0"
             aria-label={`Xem hình ảnh sự kiện ${displayTitle}`}
           >
             <ImageIcon className="w-4 h-4" />

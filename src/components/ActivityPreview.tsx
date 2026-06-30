@@ -23,7 +23,7 @@ export function ActivityPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {topEvents.map((event) => (
-            <div key={event.id} className="bg-surface border border-border rounded-2xl p-6 hover:border-secondary hover:shadow-md transition-all duration-200">
+            <div key={event.id} className="bg-surface border border-border rounded-[24px] p-6 hover:border-secondary hover:shadow-md transition-all duration-200 shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
               <span className="text-[10px] uppercase tracking-[1.5px] font-semibold text-secondary bg-primary-light px-2.5 py-1 rounded-full">
                 {event.type}
               </span>

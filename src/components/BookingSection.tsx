@@ -10,12 +10,12 @@ export function BookingSection() {
   return (
     <SectionReveal
       id="booking"
-      className="py-20 bg-background border-b border-border relative overflow-hidden"
+      className="py-20 bg-primary-100 relative overflow-hidden"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 relative z-10">
         
         {/* Booking CTA Banner */}
-        <div className="bg-medical-navy rounded-2xl p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-primary rounded-2xl p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-8">
           
           <div className="text-left max-w-xl">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-white leading-tight">
@@ -28,7 +28,7 @@ export function BookingSection() {
 
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-[#d4b85a] text-medical-navy text-sm font-semibold px-8 py-3.5 rounded-full transition-all whitespace-nowrap shadow-md cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-900 text-white text-sm font-semibold px-8 py-3.5 rounded-full transition-all whitespace-nowrap shadow-md cursor-pointer"
           >
             <Calendar className="w-5 h-5" />
             Đặt lịch khám tại bệnh viện

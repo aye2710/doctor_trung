@@ -38,7 +38,7 @@ export function FAQSection() {
 
         <div className="max-w-3xl mx-auto flex flex-col gap-3">
           {faqs.map((faq, idx) => (
-            <details key={idx} className="group bg-surface border border-border rounded-2xl overflow-hidden transition-all duration-200 hover:border-primary/20">
+            <details key={idx} className="group bg-surface border border-border rounded-[24px] overflow-hidden transition-all duration-200 hover:border-primary/20">
               <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
                 <span className="text-sm md:text-base font-semibold text-text-primary pr-4">
                   {faq.q}

@@ -1,37 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #0E7490;
-  --secondary: #D97706;
-  --background: #FCF9F5;
-  --surface: #FFFFFF;
-  --text-primary: #1E293B;
-  --text-secondary: #7C6B5D;
-  --border: #EDE0D4;
-  --light-bg: #F5EDE4;
-  --primary-light: #E0F2FE;
+  --primary-900: #2C5EAD;
+  --primary-700: #1591DC;
+  --primary-500: #4BB8FA;
+  --primary-100: #C4E2F5;
 
-  --medical-navy: #0E7490;
-  --medical-blue: #0E7490;
-  --primary-blue: #0E7490;
-  --light-blue: #F5EDE4;
-  --soft-blue: #F5EDE4;
-  --sky-blue: #F5EDE4;
-  --success-teal: #14B8A6;
-  --gold: #D97706;
-  --gold-light: #FEF3C7;
+  --background: #F8FCFF;
+  --surface: #FFFFFF;
+  --border: #E8F2F8;
+
+  --text-heading: #1B2B41;
+  --text-body: #5F7285;
+  --text-caption: #8F9FB0;
+
+  --medical-navy: #2C5EAD;
+  --medical-blue: #1591DC;
+  --primary-blue: #1591DC;
+  --light-blue: #C4E2F5;
+  --soft-blue: #F0F7FC;
+  --sky-blue: #C4E2F5;
+  --success-teal: #059669;
+  --gold: #1591DC;
+  --gold-light: #C4E2F5;
 }
 
 @theme {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --color-primary-900: var(--primary-900);
+  --color-primary-700: var(--primary-700);
+  --color-primary-500: var(--primary-500);
+  --color-primary-100: var(--primary-100);
+
+  --color-primary: var(--primary-700);
+  --color-secondary: var(--primary-700);
+  --color-accent: var(--primary-700);
   --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
   --color-border: var(--border);
-  --color-light-bg: var(--light-bg);
-  --color-primary-light: var(--primary-light);
+  --color-text-primary: var(--text-heading);
+  --color-text-secondary: var(--text-body);
+  --color-text-caption: var(--text-caption);
+  --color-light-bg: var(--primary-100);
+  --color-primary-light: var(--primary-100);
 
   --color-medical-navy: var(--medical-navy);
   --color-medical-blue: var(--medical-blue);
@@ -46,24 +56,32 @@
   --font-heading: "Be Vietnam Pro", sans-serif;
   --font-serif: "Be Vietnam Pro", sans-serif;
   --font-sans: "Inter", sans-serif;
+
+  --radius-card: 24px;
+  --radius-lg-card: 32px;
+  --radius-button: 14px;
+  --radius-input: 14px;
+  --radius-badge: 999px;
+
+  --shadow-card: 0 12px 30px rgba(44, 94, 173, 0.08);
+  --shadow-hover: 0 20px 45px rgba(44, 94, 173, 0.12);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* adjusted for sticky header */
+  scroll-padding-top: 80px;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
   background: var(--background);
-  color: var(--text-primary);
+  color: var(--text-heading);
   font-family: "Inter", "Be Vietnam Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -75,10 +93,9 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: var(--text-caption);
 }
 
-/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -87,7 +104,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

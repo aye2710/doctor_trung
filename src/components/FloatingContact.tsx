@@ -9,7 +9,7 @@ export function FloatingContact() {
         href={`https://zalo.me/${doctorProfile.zalo}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-14 h-14 rounded-full bg-[#0068FF] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center cursor-pointer"
+        className="w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center cursor-pointer"
         aria-label="Chat Zalo với bác sĩ"
         title="Chat Zalo"
       >
@@ -19,7 +19,7 @@ export function FloatingContact() {
       {/* Phone button */}
       <a
         href={`tel:${doctorProfile.phone}`}
-        className="w-14 h-14 rounded-full bg-gold text-medical-navy shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center cursor-pointer"
+        className="w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center cursor-pointer"
         aria-label="Gọi điện cho bác sĩ"
         title="Gọi điện"
       >
