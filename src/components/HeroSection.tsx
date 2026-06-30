@@ -10,7 +10,6 @@ const benefits = [
 const stats = [
   { value: "5+", label: "Năm kinh nghiệm" },
   { value: "3.000+", label: "Ca điều trị" },
-  { value: "95%", label: "Hài lòng" },
   { value: "24/7", label: "Hỗ trợ tư vấn" },
 ];
 
@@ -115,7 +114,7 @@ export function HeroSection() {
         <div className="relative -mt-20 lg:-mt-24 z-20 pb-12 lg:pb-16">
           <div className="bg-primary-900 shadow-[0_12px_30px_rgba(44,94,173,0.15)] py-7 md:py-8 w-full">
             <div className="max-w-[1280px] mx-auto px-8 md:px-14">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
+              <div className="grid grid-cols-3 gap-6 md:gap-0">
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-center text-center relative">
                     <span className="text-4xl md:text-5xl xl:text-[52px] font-extrabold text-white leading-none tracking-tight">
